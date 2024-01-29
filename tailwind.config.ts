@@ -21,6 +21,9 @@ const config: Config = {
         neutral: '#70707A',
         pure: '#fff',
         dark: '#111'
+      },
+      boxShadow: {
+        '3xl': '0 11px 16px 0px rgba(68, 70, 73, 0.07)',
       }
     },
   },
