@@ -18,9 +18,9 @@ const config: Config = {
         secondary: '#24BAF3',
         light: '#E9F0FF',
         purple: '#803DFF',
-        neutral: '#70707A',
+        neutral: '#333333',
         pure: '#fff',
-        dark: '#111'
+        dark: '#111',
       }
     },
   },
