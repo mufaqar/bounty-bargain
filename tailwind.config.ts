@@ -18,12 +18,16 @@ const config: Config = {
         secondary: '#24BAF3',
         light: '#E9F0FF',
         purple: '#803DFF',
-        neutral: '#70707A',
+        neutral: '#333333',
         pure: '#fff',
+
         dark: '#111'
       },
       boxShadow: {
         '3xl': '0 11px 16px 0px rgba(68, 70, 73, 0.07)',
+
+        dark: '#111',
+
       }
     },
   },
