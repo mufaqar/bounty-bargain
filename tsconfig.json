@@ -20,7 +20,6 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-    target: "ES2017"
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/context/global-context.jsx"],
   "exclude": ["node_modules"]
