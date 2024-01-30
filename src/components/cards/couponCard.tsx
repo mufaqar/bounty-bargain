@@ -3,8 +3,7 @@ import Image from 'next/image'
 import React, { useContext } from 'react'
 import Button from '../UI/button/button'
 import { GlobalContext } from '@/context/global-context'
-import Model from '@/components/UI/model'
-import RevelCopon from './revelCopon'
+
 
 const CouponCard = ({ data }: any) => {
      const { openModal, setCopan } = useContext(GlobalContext)
@@ -19,7 +18,7 @@ const CouponCard = ({ data }: any) => {
                          <p className='font-light max-w-[200px] mb-8'>{data.info}</p>
                          <div onClick={() => {
                               setCopan(data)
-                              openModal()
+                              openModal('coupon')
                          }}>
                               <Button
                                    size='large'
@@ -33,7 +32,6 @@ const CouponCard = ({ data }: any) => {
                          </div>
                     </div>
                </div>
-               <Model><RevelCopon /></Model>
           </>
      )
 }

@@ -6,6 +6,7 @@ import { GlobalProvider } from "@/context/global-context";
 
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from "react-toastify";
+import WebLayout from "@/components/UI/webLayout";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,8 +24,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <GlobalProvider>
-        <Header/>
-        {children}
+          <WebLayout>
+            <Header />
+            {children}
+          </WebLayout>
         </GlobalProvider>
         <ToastContainer />
       </body>
