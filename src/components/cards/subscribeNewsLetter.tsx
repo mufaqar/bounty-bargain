@@ -9,7 +9,7 @@ const SubscribeNewsLetter = () => {
      const { newsLetterConfurmation } = useContext(GlobalContext)
 
      return (
-          <section className='max-w-[720px] w-full mx-auto py-8 px-7 md:px-20'>
+          <section className='max-w-[680px] w-full mx-auto py-8 px-7 md:px-20'>
                <div>
                     {
                          !newsLetterConfurmation && <div>
