@@ -52,5 +52,11 @@ export const coupon = defineType({
       type: "reference",
       to: [{ type: "store" }],
     }),
+    defineField({
+      title: "Category",
+      name: "category",
+      type: "reference",
+      to: [{ type: "category" }],
+    }),
   ],
 });
