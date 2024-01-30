@@ -8,15 +8,17 @@ import Image from 'next/image';
 import MobileNav from './mobileNav';
 import PopularCategories from './popularCategories';
 import { GlobalContext } from '@/context/global-context';
+import { usePathname } from 'next/navigation';
 
 const Header = () => {
 
      const { openModal } = useContext(GlobalContext)
-
+     const pathName = usePathname()
      const [isMobile, setIsMobile] = useState<boolean>(false)
      const [isCategory, setIsCategory] = useState<boolean>(false)
 
      return (
+          !pathName?.includes('studio') &&
           <>
                <header className='container mx-auto px-3 z-50 relative bg-transparent md:px-0 py-4 flex justify-between items-center'>
                     <div className='flex items-center gap-5 lg:gap-8'>

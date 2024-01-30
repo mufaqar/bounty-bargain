@@ -6,3 +6,7 @@
   background-color: #111111a1 !important;
   z-index: 100;
 }
+
+[data-testid='group-tab-all-fields'] {
+  display: none !important;
+}
