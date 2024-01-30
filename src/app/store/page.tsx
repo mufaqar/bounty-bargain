@@ -6,11 +6,13 @@ import Promo from '@/components/store/promo'
 import Sidebar from '@/components/store/sidebar'
 import React from 'react'
 import { CouponData } from '../../../public/data/coupons'
+import Container from '@/components/UI/container'
+import { CategoriesData } from '../../../public/data/catogeries'
 
 export default function Store() {
     return (
         <main className='bg-secondary/5'>
-            <div className='container mx-auto px-4 flex md:flex-row flex-col-reverse gap-10 py-16'>
+            <Container className='flex md:flex-row flex-col-reverse gap-10 py-16'>
                 <aside className='md:w-1/4 w-full'>
                     <Sidebar />
                 </aside>
@@ -20,40 +22,35 @@ export default function Store() {
                     </div>
                     <div>
                         <div className='flex flex-col gap-10'>
-                            {CouponData?.map((item:any, idx:number) => {
+                            {CouponData?.map((item: any, idx: number) => {
                                 return (
                                     <Coupon
                                         key={idx}
-                                        name={item?.name}
-                                        price={item?.price}
-                                        useTime={item?.useTime}
-                                        sucRate={item?.sucRate}
-                                        deal={item?.deal}
-                                        img={item?.img}
-                                    />
+                                        data={item} />
                                 )
                             })}
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className='container mx-auto px-4 py-8'>
+            </Container>
+            <Container className='py-8'>
                 <AnotherDeal />
-            </div>
-            <div className='container mx-auto px-4 py-8'>
+            </Container>
+            <Container className='py-8'>
                 <FaqSec />
-            </div>
-            <div className='container mx-auto px-4 py-8'>
+            </Container>
+            <Container className='py-8'>
                 <AnotherDeal />
-            </div>
-            <div className='container mx-auto px-4 py-8 flex flex-col gap-7 divide-y divide-black/50'>
+            </Container>
+            <Container className='py-8 flex flex-col gap-7 divide-y divide-black/50'>
                 <Accordion
-                    title=" Popular Categories"
+                    title="Categories"
+                    data={CategoriesData}
                 />
                 <Accordion
-                    title="Popular Stores"
+                    title="Stores"
                 />
-            </div>
+            </Container>
         </main>
     )
 }

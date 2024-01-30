@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
+import Button from '../UI/button/button'
 
 const AnotherDeal = () => {
     return (
@@ -26,10 +27,16 @@ const AnotherDeal = () => {
                             placeholder='Email Adress'
                             className='text-sm font-normal w-full bg-white border border-primary focus:border-secondary px-5 py-3.5 rounded-[10px] outline-none ' />
                     </div>
-                    <button className='text-base font-bold text-white bg-primary hover:bg-secondary px-5 py-3.5 rounded-[10px] md:max-w-[186px] w-full'>
+                    <Button
+                        size='large'
+                        variants='primary'
+                        color="primary"
+                        fullwidth
+                        rounded
+                        className='md:max-w-[186px] w-full hover:bg-secondary'
+                    >
                         Subscribe
-                    </button>
-
+                    </Button>
                 </form>
             </div>
         </div>
