@@ -7,6 +7,7 @@ import Sidebar from '@/components/store/sidebar'
 import React from 'react'
 import { CouponData } from '../../../public/data/coupons'
 import Container from '@/components/UI/container'
+import { CategoriesData } from '../../../public/data/catogeries'
 
 export default function Store() {
     return (
@@ -43,10 +44,11 @@ export default function Store() {
             </Container>
             <Container className='py-8 flex flex-col gap-7 divide-y divide-black/50'>
                 <Accordion
-                    title=" Popular Categories"
+                    title="Categories"
+                    data={CategoriesData}
                 />
                 <Accordion
-                    title="Popular Stores"
+                    title="Stores"
                 />
             </Container>
         </main>
