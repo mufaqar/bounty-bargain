@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Logo from './logo'
 import Button from '../UI/button/button'
 import { IoIosArrowDown } from "react-icons/io";
@@ -7,8 +7,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import MobileNav from './mobileNav';
 import PopularCategories from './popularCategories';
+import { GlobalContext } from '@/context/global-context';
 
 const Header = () => {
+
+     const { openModal } = useContext(GlobalContext)
 
      const [isMobile, setIsMobile] = useState<boolean>(false)
      const [isCategory, setIsCategory] = useState<boolean>(false)
@@ -47,7 +50,7 @@ const Header = () => {
                          variants="text"
                          className="hidden md:flex"
                     >
-                         Join the mail list
+                         <span onClick={()=>openModal('newsletter')}>Join the mail list</span>
                     </Button>
 
                     {/* hamburgur */}
@@ -62,7 +65,6 @@ const Header = () => {
 
                {/* mobile navigation  */}
                 <MobileNav isMobile={isMobile} />
-
           </>
      )
 }

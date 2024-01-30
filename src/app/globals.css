@@ -3,6 +3,6 @@
 @tailwind utilities;
 
 .ReactModal__Overlay{
-  background-color: #11111126 !important;
+  background-color: #111111a1 !important;
   z-index: 100;
 }
