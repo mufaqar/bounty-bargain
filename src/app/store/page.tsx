@@ -6,11 +6,12 @@ import Promo from '@/components/store/promo'
 import Sidebar from '@/components/store/sidebar'
 import React from 'react'
 import { CouponData } from '../../../public/data/coupons'
+import Container from '@/components/UI/container'
 
 export default function Store() {
     return (
         <main className='bg-secondary/5'>
-            <div className='container mx-auto px-4 flex md:flex-row flex-col-reverse gap-10 py-16'>
+            <Container className='flex md:flex-row flex-col-reverse gap-10 py-16'>
                 <aside className='md:w-1/4 w-full'>
                     <Sidebar />
                 </aside>
@@ -30,24 +31,24 @@ export default function Store() {
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className='container mx-auto px-4 py-8'>
+            </Container>
+            <Container className='py-8'>
                 <AnotherDeal />
-            </div>
-            <div className='container mx-auto px-4 py-8'>
+            </Container>
+            <Container className='py-8'>
                 <FaqSec />
-            </div>
-            <div className='container mx-auto px-4 py-8'>
+            </Container>
+            <Container className='py-8'>
                 <AnotherDeal />
-            </div>
-            <div className='container mx-auto px-4 py-8 flex flex-col gap-7 divide-y divide-black/50'>
+            </Container>
+            <Container className='py-8 flex flex-col gap-7 divide-y divide-black/50'>
                 <Accordion
                     title=" Popular Categories"
                 />
                 <Accordion
                     title="Popular Stores"
                 />
-            </div>
+            </Container>
         </main>
     )
 }
