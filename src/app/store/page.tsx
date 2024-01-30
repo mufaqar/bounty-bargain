@@ -5,6 +5,7 @@ import FaqSec from '@/components/store/faq-sec'
 import Promo from '@/components/store/promo'
 import Sidebar from '@/components/store/sidebar'
 import React from 'react'
+import { CouponData } from '../../../public/data/coupons'
 
 export default function Store() {
     return (
@@ -57,53 +58,3 @@ export default function Store() {
     )
 }
 
-export const CouponData = [
-    {
-        name: " Coupon name",
-        price: "$20 Off $49",
-        useTime: "138",
-        sucRate: "78",
-        deal: "TOP DEAL",
-        img: "/images/author.png",
-    },
-    {
-        name: " Coupon name",
-        price: "$20 Off $49",
-        useTime: "138",
-        sucRate: "78",
-        deal: "TOP DEAL",
-        img: "/images/author.png",
-    },
-    {
-        name: " Coupon name",
-        price: "$20 Off $49",
-        useTime: "138",
-        sucRate: "78",
-        deal: "",
-        img: "/images/author.png",
-    },
-    {
-        name: " Coupon name",
-        price: "$20 Off $49",
-        useTime: "138",
-        sucRate: "78",
-        deal: "TOP DEAL",
-        img: "/images/author.png",
-    },
-    {
-        name: " Coupon name",
-        price: "$20 Off $49",
-        useTime: "138",
-        sucRate: "78",
-        deal: "",
-        img: "/images/author.png",
-    },
-    {
-        name: " Coupon name",
-        price: "$20 Off $49",
-        useTime: "138",
-        sucRate: "78",
-        deal: "TOP DEAL",
-        img: "/images/author.png",
-    },
-]
