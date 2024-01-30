@@ -25,9 +25,7 @@ const config: Config = {
       },
       boxShadow: {
         '3xl': '0 11px 16px 0px rgba(68, 70, 73, 0.07)',
-
-        dark: '#111',
-
+        '4xl': '0 6px 40px 0px rgba(68, 70, 73, 0.25)',
       }
     },
   },
