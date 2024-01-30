@@ -20,17 +20,11 @@ export default function Store() {
                     </div>
                     <div>
                         <div className='flex flex-col gap-10'>
-                            {CouponData?.map((item:any, idx:number) => {
+                            {CouponData?.map((item: any, idx: number) => {
                                 return (
                                     <Coupon
                                         key={idx}
-                                        name={item?.name}
-                                        price={item?.price}
-                                        useTime={item?.useTime}
-                                        sucRate={item?.sucRate}
-                                        deal={item?.deal}
-                                        img={item?.img}
-                                    />
+                                        data={item} />
                                 )
                             })}
                         </div>
