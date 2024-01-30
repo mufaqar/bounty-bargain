@@ -54,8 +54,8 @@ const SubmitCoupon = () => {
                                    </Button>
                               </div>
                               <p className="text-center text-neutral mt-8">
-                              Please only submit publicly available coupon codes and not private or internal company codes.
-When in doubt, please obtain permission from the merchant first. See our <Link href="#" className='text-primary'>Terms and Conditions</Link> formore information regarding user generated content. Thank you very much!
+                                   Please only submit publicly available coupon codes and not private or internal company codes.
+                                   When in doubt, please obtain permission from the merchant first. See our <Link href="#" className='text-primary'>Terms and Conditions</Link> formore information regarding user generated content. Thank you very much!
                               </p>
                          </div>
                     </Container>
