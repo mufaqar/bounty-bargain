@@ -8,7 +8,7 @@ const Banner = () => {
         <section className='h-screen min-h-screen bg-secondary/5 py-20'>
             <Container className="grid md:grid-cols-2 grid-cols-1 gap-7 items-center">
                 <div>
-                    <h1 className='sm:text-[64px] sm:leading-[81px] text-4xl font-light text-dark'>
+                    <h1 className='sm:text-[64px] sm:leading-[81px] text-4xl font-light text-dark '>
                         Get paid to share your opinion
                     </h1>
                     <form className='flex items-center sm:gap-2.5 gap-1 bg-white border border-primary rounded-2xl py-1 px-1.5 shadow-4xl mt-10'>
