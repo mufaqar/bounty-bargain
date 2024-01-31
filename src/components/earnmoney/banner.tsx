@@ -1,9 +1,13 @@
-import React from 'react'
+'use client'
+import React, { useState } from 'react'
 import Container from '../UI/container'
 import Image from 'next/image'
 import Button from '../UI/button/button'
+import Link from 'next/link'
 
 const Banner = () => {
+    const [mail, setMail] = useState('')   
+
     return (
         <Container className="grid md:grid-cols-2 grid-cols-1 gap-7 items-center">
             <div>
@@ -19,19 +23,21 @@ const Banner = () => {
                             id='email'
                             name='email'
                             type='email'
+                            value={mail}
+                            onChange={(e)=>setMail(e.target.value)}
                             placeholder='Enter your e-mail address'
                             className='sm:text-2xl text-sm font-normal w-full focus:border-secondary px-1 py-3 rounded-2xl outline-none ' />
                     </div>
-                    <Button
-                        size='large'
-                        variants='primary'
-                        color="primary"
-                        fullwidth
-                        rounded
-                        className='sm:max-w-[186px] w-fit px-0 bg-purple hover:bg-secondary sm:text-2xl text-sm rounded-2xl'
-                    >
-                        Join Free
-                    </Button>
+                        <Button
+                            size='large'
+                            variants='primary'
+                            color="primary"
+                            fullwidth
+                            rounded
+                            className='sm:max-w-[186px] w-fit px-0 bg-purple hover:bg-secondary sm:text-2xl text-sm rounded-2xl'
+                        >
+                            <Link href={`?email=${mail}#registor`}>Join Free</Link>
+                        </Button>
                 </form>
             </div>
             <div>

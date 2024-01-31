@@ -9,6 +9,9 @@
   background-color: #111111a1 !important;
   z-index: 100;
 }
+html{
+  scroll-behavior: smooth;
+}
 
 
 .proceed li::marker {
@@ -25,5 +28,19 @@
 
 [data-testid='group-tab-all-fields'] {
   display: none !important;
+}
 
+.bar::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+.bar::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+ 
+/* Handle */
+.bar::-webkit-scrollbar-thumb {
+  background: #803DFF; 
+  border-radius: 10px;
 }
