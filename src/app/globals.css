@@ -2,16 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "~slick-carousel/slick/slick.css"; 
+@import "~slick-carousel/slick/slick.css";
 @import "~slick-carousel/slick/slick-theme.css";
 
-.ReactModal__Overlay{
+.ReactModal__Overlay {
   background-color: #111111a1 !important;
   z-index: 100;
 }
 html{
   scroll-behavior: smooth;
 }
+
+
+.proceed li::marker {
+  content: '✓ ';
+  font-size: 1em;
+  color: #2A4CFF;
+}
+
+@media (max-width: 768px) {
+  .proceed li::marker {
+    content: '';
+  }
+  
 
 [data-testid='group-tab-all-fields'] {
   display: none !important;
