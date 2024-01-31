@@ -1,6 +1,6 @@
 import { type SchemaTypeDefinition } from 'sanity'
 import { users } from './schema/user'
-import { store } from './schema/stores'
+import { store } from './schema/store'
 import { coupon } from './schema/coupon'
 import { category } from './schema/category'
 

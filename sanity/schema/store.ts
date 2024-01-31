@@ -93,5 +93,21 @@ export const store = defineType({
       title: "Meta Description",
       group: "seo",
     }),
+    defineField({
+      title: "Faqs",
+      type: "array",
+      name: "faqs",
+      group: "main",
+      of: [
+        {
+          type: "object",
+          name: "faq",
+          fields: [
+            { type: "string", name: "question" },
+            { type: "text", name: "answer" },
+          ],
+        },
+      ],
+    }),
   ],
 });
