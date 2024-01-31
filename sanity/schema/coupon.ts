@@ -22,6 +22,12 @@ export const coupon = defineType({
       title: "Discount",
     }),
     defineField({
+      name: "offerType",
+      type: "string",
+      title: "Offer Type",
+      group: "main",
+    }),
+    defineField({
       name: "info",
       type: "text",
       title: "Info",

@@ -45,12 +45,6 @@ export const store = defineType({
       group: "main",
     }),
     defineField({
-      name: "offerType",
-      type: "string",
-      title: "Offer Type",
-      group: "main",
-    }),
-    defineField({
       name: "info",
       type: "text",
       title: "Info",
