@@ -12,7 +12,7 @@ export async function GET() {
 // create copons 
 export async function POST(req: Request) {
   try {
-    const { name, slug, logo, offerType, info, detail, grandRating, user, metaTitle, metaDescription, faqs } =
+    const { name, slug, logo, offerType, info, detail, grandRating, userId, metaTitle, metaDescription, faqs } =
       (await req.json()) as {
         name: string;
         slug: string;
@@ -24,17 +24,24 @@ export async function POST(req: Request) {
         metaTitle: string,
         metaDescription: string,
         faqs: any,
-        user: any,
+        userId: any,
       };
 
     const doc = {
       _type: "store",
       name,
-      slug,
+      slug:{
+        current: slug
+      },
       offerType,
       info,
       detail,
-      grandRating
+      grandRating,
+      user:{
+        _type : "reference",
+        _ref: userId,
+      },
+      faqs
     };
 
     // check if user already exist by email
