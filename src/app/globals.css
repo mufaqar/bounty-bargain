@@ -10,6 +10,7 @@
   z-index: 100;
 }
 
+
 .proceed li::marker {
   content: '✓ ';
   font-size: 1em;
@@ -61,5 +62,9 @@
   .proceed li::marker {
     content: '';
   }
+}
+
+[data-testid='group-tab-all-fields'] {
+  display: none !important;
 
 }
