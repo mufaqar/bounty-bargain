@@ -1,0 +1,36 @@
+import Image from 'next/image'
+import Link from 'next/link'
+import React from 'react'
+
+const PostBox = ({ data }: any) => {
+    return (
+        <div className=' rounded-3xl px-4 mx-auto'>
+            <div>
+                <Image src={data?.img} alt='feature' width={336} height={203} className='w-full h-full' />
+            </div>
+            <div className='mt-6'>
+                <p className='text-xs font-normal text-neutral/80'>
+                    {data?.date}
+                </p>
+                <Link href="#" className='text-base font-bold text-dark'>
+                    {data?.title}
+                </Link>
+                <div className='flex items-center gap-5 pt-6'>
+                    <div className='w-[41px] h-[41px] rounded-full'>
+                        <Image src="/images/feature.png" alt='feature' width={336} height={203} className='w-full h-full rounded-full' />
+                    </div>
+                    <div>
+                        <h4 className='text-sm font-semibold text-dark'>
+                            Guilherme Santos
+                        </h4>
+                        <p className='text-xs font-normal text-neutral/80'>
+                            1 min reading
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+export default PostBox
