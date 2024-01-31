@@ -27,6 +27,18 @@ export const store = defineType({
       group: "main",
     }),
     defineField({
+      title: "Slug",
+      name: "slug",
+      type: "slug",
+      group: "main",
+      options: {
+        source: "name",
+        maxLength: 200, // will be ignored if slugify is set
+        slugify: (input) =>
+          input.toLowerCase().replace(/\s+/g, "-").slice(0, 200),
+      },
+    }),
+    defineField({
       name: "logo",
       type: "image",
       title: "Logo",
