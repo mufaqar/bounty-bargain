@@ -1,7 +1,7 @@
 'use client'
 import Button from '@/components/UI/button/button';
 import Image from 'next/image';
-import { usePathname, useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import React, { useState } from 'react'
 import { FaCheck } from "react-icons/fa6";
 import { IoMdArrowDropdown } from "react-icons/io";
