@@ -2,13 +2,20 @@
 import Button from '@/components/UI/button/button';
 import Image from 'next/image';
 import { useSearchParams } from 'next/navigation';
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { FaCheck } from "react-icons/fa6";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { FaCheckCircle } from "react-icons/fa";
+import { toast } from 'react-toastify';
+import { GlobalContext } from '@/context/global-context';
 
 const RegisterForm = () => {
+
+    const { openModal } = useContext(GlobalContext)
+
+
     const [openDTab, setOpenDTab] = useState('')
+    const [loading, setLoding] = useState(false)
     const searchParams = useSearchParams()
 
     const queryemail = searchParams.get('email') || ""
@@ -37,8 +44,6 @@ const RegisterForm = () => {
         }));
     }
 
-    console.log("🚀 ~ RegisterForm ~ formData:", formData)
-    
     const handleGender = (gender: any) => {
         setFormData({
             ...formData, gender
@@ -55,9 +60,43 @@ const RegisterForm = () => {
     }
 
 
+    const createUserHandler = async () => {
+        setLoding(true)
+        fetch("/api/create-user", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${process.env.NEXT_PUBLIC_SANITY_TOKEN}`,
+            },
+            body: JSON.stringify({ ...formData, dateofbirth: `${formData.day}-${formData.month}-${formData.year}` })
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data);
+                setFormData({
+                    email: '',
+                    gender: '',
+                    fname: '',
+                    lname: '',
+                    day: '',
+                    month: '',
+                    year: ''
+                })
+                openModal('userRegistor')
+                setLoding(false)
+            })
+            .catch((error) => {
+                setLoding(false)
+                console.log(error)
+            });
+
+    }
+
+
+
     return (
         <div id="registor" className='bg-[#24BAF3] md:px-16 py-20 px-8 rounded-[39px] h-full'>
-            <form className='flex flex-col gap-10'>
+            <div className='flex flex-col gap-10'>
                 <div className='relative'>
                     <span className='absolute right-3 top-1/2 -translate-y-1/2 w-[79px] h-[60px] bg-[#EDF9FD] text-[#14B881] text-2xl rounded-full flex items-center justify-center'><FaCheck /></span>
                     <label htmlFor='email' className='hidden'>
@@ -128,14 +167,17 @@ const RegisterForm = () => {
                     <div className='grid md:grid-cols-3 gap-7 items-center'>
                         <div className='relative'>
                             <label htmlFor='day' onClick={() => handleTab('day')} className='flex items-center justify-between cursor-pointer bg-white w-full md:text-lg text-xs font-bold text-primary placeholder:text-primary uppercase py-4 px-4 rounded-2xl outline-none border border-transparent focus:border-secondary'>
-                                Day
+                                {formData.day ? formData.day : `Day` }
                                 <IoMdArrowDropdown className='text-2xl' />
                             </label>
                             {
                                 openDTab === 'day' && <ul className="absolute max-h-[160px] bg-white overflow-auto rounded-2xl bar w-full mt-1">
                                     {
                                         Array.from({ length: 31 }, (_, index) => index + 1)?.map((item, idx) => (
-                                            <li onClick={() => handleDOB({ value: item, name: "day" })} className="border-b-[1px] hover:bg-purple cursor-pointer hover:text-white p-1 px-5 border-gray-100" key={idx}>{item}</li>
+                                            <li onClick={() => {
+                                                handleDOB({ value: item, name: "day" });
+                                                handleTab('')
+                                            }} className="border-b-[1px] hover:bg-purple cursor-pointer hover:text-white p-1 px-5 border-gray-100" key={idx}>{item}</li>
                                         ))
                                     }
                                 </ul>
@@ -144,14 +186,17 @@ const RegisterForm = () => {
                         </div>
                         <div className='relative'>
                             <label htmlFor='day' onClick={() => handleTab('month')} className='flex items-center justify-between  cursor-pointer bg-white w-full md:text-lg text-xs font-bold text-primary placeholder:text-primary uppercase py-4 px-4 rounded-2xl outline-none border border-transparent focus:border-secondary'>
-                                Month
+                                {formData.month ? formData.month : `Month` }
                                 <IoMdArrowDropdown className='text-2xl' />
                             </label>
                             {
                                 openDTab === 'month' && <ul className="absolute max-h-[160px] bg-white overflow-auto bar rounded-2xl w-full mt-1">
                                     {
                                         Array.from({ length: 12 }, (_, index) => index + 1)?.map((item, idx) => (
-                                            <li onClick={() => handleDOB({ value: item, name: "month" })} className="border-b-[1px] hover:bg-purple cursor-pointer hover:text-white p-1 px-5 border-gray-100" key={idx}>{item}</li>
+                                            <li onClick={() => {
+                                                handleDOB({ value: item, name: "month" });
+                                                handleTab('')
+                                            }} className="border-b-[1px] hover:bg-purple cursor-pointer hover:text-white p-1 px-5 border-gray-100" key={idx}>{item}</li>
                                         ))
                                     }
                                 </ul>
@@ -159,7 +204,7 @@ const RegisterForm = () => {
                         </div>
                         <div >
                             <label htmlFor='day' onClick={() => handleTab('')} className='flex items-center justify-between cursor-pointer bg-white w-full md:text-lg text-xs font-bold text-primary placeholder:text-primary uppercase py-4 px-4 rounded-2xl outline-none border border-transparent focus:border-secondary'>
-                                <input type="text" 
+                                <input type="text"
                                     name="year"
                                     value={formData.year}
                                     onChange={(e) => handleChange(e)}
@@ -169,17 +214,21 @@ const RegisterForm = () => {
                         </div>
                     </div>
                 </div>
-                <Button
-                    size='large'
-                    variants='primary'
-                    color='primary'
-                    fullwidth
-                    rounded
-                    className='max-w-[420px] w-fit mx-auto hover:bg-purple mt-6 py-5'
-                >
-                    Register for free
-                </Button>
-            </form >
+                
+                    <Button
+                        size='large'
+                        variants='primary'
+                        color='primary'
+                        fullwidth
+                        rounded
+                        className='max-w-[420px] w-fit mx-auto hover:bg-purple mt-6 py-5'
+                        disable={loading ? true : false}
+                    >
+                        <span onClick={createUserHandler}> {loading ? 'Requesting...' : 'Register for free'}</span>
+                    </Button>
+                
+
+            </div >
         </div >
     )
 }

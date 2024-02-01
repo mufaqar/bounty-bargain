@@ -11,9 +11,10 @@ interface IButton {
      rounded?: boolean;
      className?:string;
      color?: "primary" | "secondary" | "purple",
+     disable?: boolean
 }
 
-const Button = ({ children, size, variants, fullwidth, rounded, color, className }: IButton) => {
+const Button = ({ children, size, variants, fullwidth, rounded, color, className, disable }: IButton) => {
      return (
           <button className={clsx(
                `py-2 active:scale-105 flex items-center gap-1 ${className}`,
@@ -30,6 +31,7 @@ const Button = ({ children, size, variants, fullwidth, rounded, color, className
                     "bg-secondary text-black border-secondary justify-center": color === 'secondary',
                }
           )}
+          disabled={disable}
           >
                {children}
           </button>

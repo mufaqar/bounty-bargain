@@ -32,7 +32,11 @@ export const QStore = `*[ _type == "store" && slug.current == $name][0]{
 export const QQoupons = `*[ _type == "coupon"] | order(_createdAt desc){
      _id,
      name,
-     logo,
+     logo{
+          asset->{
+               url
+          }
+     },
      _createdAt,
      _updatedAt,
      discount,
