@@ -3,7 +3,17 @@ import Button from '../UI/button/button'
 import Image from 'next/image'
 import ProceedCard from './proceed-card'
 
-const SelectProceed = () => {
+async function getData() {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_FRONEND_URL}/api/survey`)
+    if (!res.ok) {
+         throw new Error('Failed to fetch data')
+    }
+    return res.json()
+}
+
+const SelectProceed = async () => {
+    const survey = await getData()
+
     return (
         <div>
             <div className='flex gap-5 justify-between items-center md:py-2 py-5 border-y border-black'>
@@ -44,8 +54,8 @@ const SelectProceed = () => {
                 </div>
             </div>
             <div>
-                {[0, 1, 2]?.map((item: any, idx: number) => {
-                    return (<ProceedCard key={idx} />
+                {survey?.data?.map((item: any, idx: number) => {
+                    return (<ProceedCard key={idx} item={item}/>
                     )
                 })}
             </div>

@@ -8,6 +8,7 @@ export const GlobalProvider = ({ children }) => {
   const [modalIsOpen, setModalIsOpen] = useState();
   const [copan, setCopan] = useState()
   const [newsLetterConfurmation, setNewsLetterConfurmation] = useState(false)
+  const [selectSurvey, setSelectSurvey] = useState([])
 
   function closeModal() {
      setModalIsOpen(false);
@@ -21,7 +22,8 @@ export const GlobalProvider = ({ children }) => {
       value={{
           modalIsOpen, setModalIsOpen, closeModal, openModal,
           copan, setCopan,
-          newsLetterConfurmation, setNewsLetterConfurmation
+          newsLetterConfurmation, setNewsLetterConfurmation,
+          selectSurvey, setSelectSurvey
       }}
     >
       {children}
