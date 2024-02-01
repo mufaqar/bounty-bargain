@@ -1,20 +1,22 @@
 import { hash } from "bcryptjs";
 import { NextResponse } from "next/server";
 import { client } from "../../../../sanity/lib/client";
+import { generatePassword } from "@/utils";
+import { passwordMail } from "@/utils/passwordEmail";
 
 export async function POST(req: Request) {
   try {
-    const { fname, lname, gender, dateofbirth, email, password } =
+    const { fname, lname, gender, dateofbirth, email } =
       (await req.json()) as {
         fname: string;
         lname: string;
         gender: string;
         dateofbirth: string;
         email: string;
-        password: string;
       };
 
-    // hash password
+    const password = generatePassword(10)
+    // hash your password
     const hashed_password = await hash(password, 12);
 
     const doc = {
@@ -43,6 +45,8 @@ export async function POST(req: Request) {
       );
     }
 
+    // send mail to user with password and email 
+    const res = await passwordMail(email, password)
     // here create a new User
     const userRes = await client.create(doc);
     return new NextResponse(
@@ -50,6 +54,7 @@ export async function POST(req: Request) {
         status: "ok",
         email: userRes.email,
         message: "User Created",
+        emailsend:  res.ok ? true : false
       }),
       { status: 201 }
     );

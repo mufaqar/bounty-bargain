@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 const useCopyToClipBoard = () => {
      const inputRef = useRef<any>(null)
@@ -12,7 +12,7 @@ const useCopyToClipBoard = () => {
                const inputValue = inputRef.current?.value;
                // Using the modern Clipboard API
                navigator.clipboard.writeText(inputValue).then(() => {
-                    notify()
+               notify()
                }).catch((err) => {
                     errNotify()
                });

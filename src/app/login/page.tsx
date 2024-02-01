@@ -3,6 +3,7 @@ import { signIn } from 'next-auth/react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import React from 'react'
 import { client } from '../../../sanity/lib/client';
+import { passwordMail } from '@/utils/passwordEmail';
 
 const Login = () => {
 
@@ -33,21 +34,20 @@ const Login = () => {
   };
 
 
-  const createUser = () =>{
+  const createUser = async () =>{
     const doc = {
       fname:  'users',
       lname:  'users',
       gender:  'users',
       dateofbirth:  'users',
-      email:  'users',
-      password: "hashed_password",
+      email:  'zunairgillani14@gmail.com',
     }    
    
     fetch("http://localhost:3000/api/create-user", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": "Bearer skP2S7MCtS3jgy2tHbkxY6JpgaMAwJxDv9Lp94WL2e5bRci5jHBXlOQiymO6UIq9KMRvmHaDLvlQg3vKz8x8omnTGAp35aQfWrA29gEHU1PLoTdaGDWVBu7pG5X4W5Aeoz737jZ0nmZeVFZdHzUJnaH23VVcjN3dVrizmxMkUnfpHrAHdxS8",
+        "Authorization": `Bearer ${process.env.NEXT_PUBLIC_SANITY_TOKEN}`,
       },
       body: JSON.stringify(doc)
 
@@ -57,8 +57,11 @@ const Login = () => {
         console.log(data);
       })
       .catch((error) => console.log(error));
+
+
   } 
 
+  
 
   return (
     <button onClick={createUser}>click me</button>
