@@ -1,7 +1,7 @@
 'use client'
 import Button from '@/components/UI/button/button';
 import Image from 'next/image';
-import { useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import React, { useContext, useState } from 'react'
 import { FaCheck } from "react-icons/fa6";
 import { IoMdArrowDropdown } from "react-icons/io";
@@ -12,7 +12,7 @@ import { GlobalContext } from '@/context/global-context';
 const RegisterForm = () => {
 
     const { openModal } = useContext(GlobalContext)
-
+    const router =  useRouter()
 
     const [openDTab, setOpenDTab] = useState('')
     const [loading, setLoding] = useState(false)
@@ -82,14 +82,14 @@ const RegisterForm = () => {
                     month: '',
                     year: ''
                 })
-                openModal('userRegistor')
+                // openModal('userRegistor')
+                router.push(`/survey?email=${data?.email}`)
                 setLoding(false)
             })
             .catch((error) => {
                 setLoding(false)
                 console.log(error)
             });
-
     }
 
 
@@ -223,11 +223,10 @@ const RegisterForm = () => {
                         rounded
                         className='max-w-[420px] w-fit mx-auto hover:bg-purple mt-6 py-5'
                         disable={loading ? true : false}
+                        click={createUserHandler}
                     >
-                        <span onClick={createUserHandler}> {loading ? 'Requesting...' : 'Register for free'}</span>
+                        {loading ? 'Requesting...' : 'Register for free'}
                     </Button>
-                
-
             </div >
         </div >
     )

@@ -35,6 +35,19 @@ export const users = defineType({
       type: "string",
       title: "Password",
       readOnly: true,
+    }),
+    defineField({
+      title: 'Selected Survey',
+      name: 'survey',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [
+            {type: 'survey'},
+          ]
+        }
+      ]
     })
   ],
 });
