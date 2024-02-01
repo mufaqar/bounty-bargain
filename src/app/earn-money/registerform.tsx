@@ -2,17 +2,21 @@
 import Button from '@/components/UI/button/button';
 import Image from 'next/image';
 import { useSearchParams } from 'next/navigation';
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { FaCheck } from "react-icons/fa6";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { FaCheckCircle } from "react-icons/fa";
 import { toast } from 'react-toastify';
+import { GlobalContext } from '@/context/global-context';
 
 const RegisterForm = () => {
+
+    const { openModal } = useContext(GlobalContext)
+
+
     const [openDTab, setOpenDTab] = useState('')
     const [loading, setLoding] = useState(false)
     const searchParams = useSearchParams()
-    const notify = () => toast("User Successfully created. Password send to your email!");
 
     const queryemail = searchParams.get('email') || ""
 
@@ -78,7 +82,7 @@ const RegisterForm = () => {
                     month: '',
                     year: ''
                 })
-                notify()
+                openModal('userRegistor')
                 setLoding(false)
             })
             .catch((error) => {

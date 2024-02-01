@@ -1,13 +1,26 @@
 import Container from "@/components/UI/container";
 import Heading from "@/components/UI/heading/mainHeading";
 import CouponCard from "@/components/cards/couponCard";
+import Categories from "@/components/categories";
 import SearchBox from "@/components/searchBox/searchBox";
 import Stories, { copanStories } from "@/components/storie/stories";
 import StoryCard from "@/components/storie/storyCard";
-import Image from "next/image";
-import Link from "next/link";
 
-export default function Home() {
+async function getData() {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_FRONEND_URL}/api/coupons`)
+  if (!res.ok) {
+       throw new Error('Failed to fetch data')
+  }
+  const coupons = await res.json()
+  return {
+    coupons
+  }
+}
+
+
+export default async function Home() {
+  const {coupons} = await getData()
+  console.log("1111🚀 ~ Home ~ coupons22:", coupons)
   return (
     <>
       <SearchBox />
@@ -18,25 +31,13 @@ export default function Home() {
             <Heading>Best Deals in the moment</Heading>
             <div className="grid md:grid-cols-4 gap-4 mt-8">
               {
-                couponsdata?.map((item, idx) => (
+                coupons?.data?.map((item:any, idx:number) => (
                   <CouponCard key={idx} data={item} />
                 ))
               }
             </div>
           </div>
-          {/* popular categories  */}
-          <div className="mt-20">
-            <Heading>Popular Categories</Heading>
-            <ul className="mt-6 flex flex-wrap gap-4">
-              {
-                categories.map((item, idx) => (
-                  <li key={idx} className="bg-white text-neutral border p-1 px-3 hover:scale-105 transition-all duration-100 ease-linear">
-                    <Link href={item.href}>{item.lable}</Link>
-                  </li>
-                ))
-              }
-            </ul>
-          </div>
+          <Categories/>
           <div className="pt-[1px] w-full bg-neutral mt-12"/>
           {/* Popular Stores */}
           <div className="my-12">
@@ -130,52 +131,4 @@ const couponsdata = [
     siteName: 'shein.com',
     siteURL: 'https://shein.com'
   },
-]
-
-
-const categories = [
-  {
-    lable: 'plants',
-    href: "#"
-  },
-  {
-    lable: 'skin care',
-    href: "#"
-  },
-  {
-    lable: 'mouthwash',
-    href: "#"
-  },
-  {
-    lable: 'books',
-    href: "#"
-  },
-  {
-    lable: 'bath mats',
-    href: "#"
-  },
-  {
-    lable: 'fashion',
-    href: "#"
-  },
-  {
-    lable: 'climate control',
-    href: "#"
-  },
-  {
-    lable: 'supplements',
-    href: "#"
-  },
-  {
-    lable: 'shampoo',
-    href: "#"
-  },
-  {
-    lable: 'bottles',
-    href: "#"
-  },
-  {
-    lable: 'hats',
-    href: "#"
-  }
 ]

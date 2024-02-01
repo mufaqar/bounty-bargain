@@ -10,12 +10,16 @@ const CouponCard = ({ data }: any) => {
      return (
           <>
                <div className='rounded-[14px] overflow-hidden border'>
-                    <figure className="bg-[#040404] flex justify-center">
-                         <Image src={data.logo} alt={data.title} width={200} height={200} />
+                    <figure className="bg-[#040404] flex justify-center py-5">
+                         <Image src={data.logo.asset.url} alt={data.title} width={160} height={200} />
                     </figure>
                     <div className='p-4 px-6 text-neutral'>
-                         <h2 className='font-semibold text-lg underline'>{data.title}</h2>
-                         <p className='font-light max-w-[200px] mb-8'>{data.info}</p>
+                         <h2 className='font-semibold text-lg underline'>{data.name}</h2>
+                         <p className='font-light max-w-[200px] my-1'>{data.info}</p>
+                         {
+                              data.discount && <p className='font-light max-w-[200px] mb-8'>Discount</p>
+                         }
+                         
                          <div onClick={() => {
                               setCopan(data)
                               openModal('coupon')
