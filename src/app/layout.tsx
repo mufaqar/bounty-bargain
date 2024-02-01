@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from "react-toastify";
 import WebLayout from "@/components/UI/webLayout";
 import { NextAuthProvider } from "@/utils/providers";
+import Footer from "@/components/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,6 +30,7 @@ export default function RootLayout({
           <WebLayout>
             <Header />
             {children}
+            <Footer/>
           </WebLayout>
         </GlobalProvider>
         </NextAuthProvider>
