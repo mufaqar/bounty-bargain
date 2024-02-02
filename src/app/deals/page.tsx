@@ -17,7 +17,7 @@ async function getData(): Promise<any> {
 
 export default async function Deals() {
     const { coupons } = await getData()
-    console.log("🚀 ~ Deals ~ coupons:", coupons)
+
     return (
         <>
             <SearchBox />
