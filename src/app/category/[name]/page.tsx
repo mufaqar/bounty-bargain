@@ -3,13 +3,23 @@ import Heading from '@/components/UI/heading/mainHeading'
 import SearchBox from '@/components/searchBox/searchBox'
 import Coupon from '@/components/store/coupon'
 import React from 'react'
-import { CouponData } from '../../../public/data/coupons'
 import AnotherDeal from '@/components/store/another-deal'
-import Accordion from '@/components/store/accordion'
 import { BiChevronRight } from 'react-icons/bi'
-import { CategoriesData } from '../../../public/data/catogeries'
+import Categories from '@/components/categories'
+import PopularStories from '@/components/popular-stories'
+import { client } from '../../../../sanity/lib/client'
+import { QQouponsByCategories } from '../../../../sanity/lib/queries'
 
-export default function Category() {
+async function getData(name:any): Promise<any> {
+    const coupons = await client.fetch(QQouponsByCategories, {name})
+    return {
+      coupons
+    }
+  }
+  
+
+export default async function Category({params}:any) {
+    const { coupons } =  await getData(params.name)
     return (
         <>
             <SearchBox />
@@ -18,15 +28,16 @@ export default function Category() {
                     <ul className='flex gap-1 items-center sm:pl-[10%]'>
                         <li className='text-base font-normal text-[#44444B]'>Home</li>
                         <li className='text-base font-normal text-[#44444B]'><BiChevronRight /></li>
-                        <li className='text-base font-medium text-[#44444B]'>Food & Drink coupons</li>
+                        <li className='text-base font-medium text-[#44444B] capitalize'>{params.name.replace(/-/g, ' ')} coupons</li>
                     </ul>
-                    <Heading className="text-primary text-center my-8">Today's Top Food & Drink coupons & promo codes</Heading>
+                    <Heading className="text-primary text-center my-8 capitalize">Today's Top {params.name.replace(/-/g, ' ')} coupons & promo codes</Heading>
                     <div className='max-w-[730px] mx-auto flex flex-col gap-10'>
-                        {CouponData?.map((item: any, idx: number) => {
+                        {coupons?.map((item: any, idx: number) => {
                             return (
                                 <Coupon
                                     key={idx}
-                                    data={item} />
+                                    data={item} 
+                                />
                             )
                         })}
                     </div>
@@ -34,14 +45,11 @@ export default function Category() {
                 <Container className='py-8'>
                     <AnotherDeal />
                 </Container>
-                <Container className='py-8 flex flex-col gap-7 divide-y divide-black/50'>
-                    <Accordion
-                        title="Categories"
-                        data={CategoriesData}
-                    />
-                    <Accordion
-                        title="Stores"
-                    />
+                <Container className='py-6 flex flex-col gap-7 '>
+                        <Categories />
+                        <div className="pt-[1px] w-full bg-neutral mt-8" />
+                        {/* Popular Stores */}
+                        <PopularStories />
                 </Container>
             </section>
         </>

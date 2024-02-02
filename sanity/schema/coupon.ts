@@ -25,7 +25,6 @@ export const coupon = defineType({
       name: "offerType",
       type: "string",
       title: "Offer Type",
-      group: "main",
     }),
     defineField({
       name: "info",
@@ -64,5 +63,18 @@ export const coupon = defineType({
       type: "reference",
       to: [{ type: "category" }],
     }),
+    {
+      name: "offer_type",
+      title: "Offer Type",
+      type: "array",
+      of: [{ type: "string" }],
+      options: {
+        layout: "radio",
+        list: [
+          { title: "Deal", value: "deal" },
+          { title: "Coupon", value: "coupon" }
+        ]
+      },
+    },
   ],
 });

@@ -2,7 +2,7 @@ import Banner from '@/components/earnmoney/banner'
 import HowItWork from '@/components/earnmoney/how-it-work'
 import Partners from '@/components/earnmoney/partners'
 import React from 'react'
-import RegisterNow from './register-now'
+import RegisterNow from '@/components/register-now'
 
 export default function EarnMoney() {
     return (
