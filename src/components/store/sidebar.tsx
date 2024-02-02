@@ -5,15 +5,17 @@ import { AiOutlinePlusCircle } from 'react-icons/ai';
 import { CiStar } from "react-icons/ci";
 import { FaStar } from "react-icons/fa";
 
-const Sidebar = () => {
+const Sidebar = ({data, total, totalcoupons, totalDeals}:any) => {
     return (
         <div className='flex flex-col gap-7 divide-y divide-[#CACACE]'>
             <div className='pt-6'>
-                <Image src="/images/author.png" alt='author' width={152} height={153} />
+                <figure className="bg-gray-950 flex-col justify-center items-center h-[140px] w-[140px] flex p-4 rounded-lg">
+                    <Image src={data?.logo?.asset.url} alt='author' width={152} height={153} className='object-contain' />
+                </figure>
             </div>
             <div className='pt-6'>
                 <p className='text-lg font-bold text-purple mb-5'>
-                    Rate Shein Offers
+                    Rate {data.name} Offers
                 </p>
                 <ul className='text-2xl font-bold text-dark flex gap-1.5 items-center'>
                     <li><CiStar /></li>
@@ -25,7 +27,7 @@ const Sidebar = () => {
             </div>
             <div className='pt-6'>
                 <p className='text-lg font-bold text-purple mb-5'>
-                    About Shein
+                    About {data.name}
                 </p>
                 <ul className='text-2xl font-bold text-purple flex gap-1.5 items-center'>
                     <li><FaStar /></li>
@@ -33,20 +35,20 @@ const Sidebar = () => {
                     <li><FaStar /></li>
                     <li><FaStar /></li>
                     <li><FaStar /></li>
-                    <li className='text-sm font-normal text-[#636363]'>
+                    <li className='text-sm mt-1 font-normal text-[#636363]'>
                         4.7/5
                     </li>
                 </ul>
                 <p className='text-xs font-normal text-dark mt-4'>
-                    SHEIN provides fashion-minded shoppers who love bargains with access to fresh and trendy styles. The brand does business entirely online and has no brick-and-mortar shops. Although SHEIN caters primarily to women, they also have men’s and children’s apparel. Home and pet supplies also have their own department with cute outfits for animals and attractive home décor. Women’s fashion is by far SHEIN’s biggest draw, however, and they provide everything from cocktail dresses and T-shirts to shoes and accessories. Shoppers can also find swimsuits, lingerie and all kinds of accessories. SHEIN typically adds over 100 new items every day, and stock is always limited. It’s a fast-paced sales environment that always has something fresh to admire.
+                    {data.info}                
                 </p>
                 <Link href="#" className='text-sm font-medium text-secondary inline-flex items-center gap-4 mt-6'>
-                    <span>Read more about SHEIN</span> <AiOutlinePlusCircle />
+                    <span>Read more about {data.name}</span> <AiOutlinePlusCircle />
                 </Link>
             </div>
             <div className='pt-6'>
                 <p className='text-lg font-bold text-purple mb-5'>
-                    Today's SHEIN Top Offers:
+                    Today's {data.name} Top Offers:
                 </p>
                 <ul className='flex flex-col gap-1 list-disc list-inside'>
                     <li className='text-sm font-normal text-dark'>
@@ -59,15 +61,15 @@ const Sidebar = () => {
                 <ul className='flex flex-col gap-2 mt-6'>
                     <li className='text-sm font-normal text-dark flex items-center justify-between'>
                         <span>Total Offers</span>
-                        <strong> 50</strong>
+                        <strong> {total}</strong>
                     </li>
                     <li className='text-sm font-normal text-dark flex items-center justify-between'>
                         <span>Coupon Codes</span>
-                        <strong>  42</strong>
+                        <strong>  {totalcoupons}</strong>
                     </li>
                     <li className='text-sm font-normal text-dark flex items-center justify-between'>
                         <span>Free Shipping Deals</span>
-                        <strong>  2</strong>
+                        <strong>  {totalDeals}</strong>
                     </li>
                     <li className='text-sm font-normal text-dark flex items-center justify-between'>
                         <span>Best Discount</span>

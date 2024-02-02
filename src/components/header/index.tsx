@@ -1,5 +1,5 @@
 'use client'
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Logo from './logo'
 import Button from '../UI/button/button'
 import { IoIosArrowDown } from "react-icons/io";
@@ -16,6 +16,15 @@ const Header = () => {
      const pathName = usePathname()
      const [isMobile, setIsMobile] = useState<boolean>(false)
      const [isCategory, setIsCategory] = useState<boolean>(false)
+     const [categories, setCategories] = useState<any>()
+
+     useEffect(()=>{
+          (async()=>{
+               const res = await fetch(`${process.env.NEXT_PUBLIC_FRONEND_URL}/api/categories`)
+               const result = await res.json() 
+               setCategories(result.data)
+          })()
+     },[])
 
      return (
           !pathName?.includes('studio') &&
@@ -29,16 +38,17 @@ const Header = () => {
                                    rounded size="medium"
                                    color="secondary"
                                    className="hidden md:flex"
+                                   click={()=>setIsCategory(!isCategory)}
                               >
-                                   <span className="flex items-center gap-1" onClick={()=>setIsCategory(!isCategory)}>Categories <IoIosArrowDown /></span>
+                                   <span className="flex items-center gap-1">Categories <IoIosArrowDown /></span>
                               </Button>
                               {/* popular categories */}
-                              { isCategory && <PopularCategories /> }
+                              { isCategory && <PopularCategories categories={categories} setIsCategory={setIsCategory}/> }
                               
                          </div>
                          <ul className='text-gray-800 md:flex items-center gap-5 lg:gap-8 hidden'>
                               <li><Link href="#" className='hover:text-primary'>Deals / Coupons</Link></li>
-                              <li><Link href="#" className='hover:text-primary'>Blog</Link></li>
+                              <li><Link href="/blog" className='hover:text-primary'>Blog</Link></li>
                               <li><Link href="/earn-money" className='flex items-center gap-1 font-semibold text-primary'>
                                    <Image src="/svg/disks.svg" width={20} height={20} alt="disk" />
                                    Earn Money

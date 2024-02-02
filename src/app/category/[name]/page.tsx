@@ -23,7 +23,6 @@ export default async function Category({params}:any) {
     return (
         <>
             <SearchBox />
-            {JSON.stringify(coupons, null, 2)}
             <section className='bg-secondary/5'>
                 <Container className='pb-8 py-5'>
                     <ul className='flex gap-1 items-center sm:pl-[10%]'>

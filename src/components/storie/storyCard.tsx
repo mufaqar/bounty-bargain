@@ -1,19 +1,23 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import React, { FC } from 'react'
 
 interface IStoryProps {
      logo: string,
-     about? : string 
+     about? : string, 
+     link: string
 }
 
-const StoryCard:FC<IStoryProps> = ({logo, about}) => {
+const StoryCard:FC<IStoryProps> = ({logo, about, link}) => {
   return (
     <div>
-          <figure className='bg-pure flex justify-center shadow-md p-2 rounded-md'>
-               <Image src={logo} alt="logo" width={140} height={140} />
+          <Link href={link || '#'}>
+          <figure className='bg-pure flex justify-center shadow-md p-2 min-w-[140px] min-h-[140px] w-full h-full rounded-md'>
+               <Image src={logo} alt="logo" width={140} height={140} className='object-contain'/>
           </figure>
+          </Link>
           {
-               about && <p className='text-neutral text-center mt-3 text-sm'>{about}</p>
+               about && <p className='text-neutral text-center mt-3 text-sm'>{about}...</p>
           }
     </div>
   )

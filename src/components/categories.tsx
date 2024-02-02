@@ -25,7 +25,7 @@ const Categories = async () => {
                     <ul className="mt-8 flex flex-wrap gap-4">
                          {
                               categories?.data?.map((item:any, idx:number) => (
-                                   <li key={idx} className="bg-white text-neutral border p-1 px-3 hover:scale-105 transition-all duration-100 ease-linear">
+                                   <li key={idx} className="bg-white text-neutral border font-medium p-1 px-3 hover:scale-105 transition-all duration-100 ease-linear">
                                         <Link href={`/category/${item.slug.current}`}>{item.name}</Link>
                                    </li>
                               ))

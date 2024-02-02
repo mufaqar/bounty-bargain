@@ -13,7 +13,12 @@ const Coupon = ({ data }: any) => {
             <div className='bg-white p-5 w-full rounded-xl shadow-3xl'>
                 <div className='flex md:flex-row flex-col gap-7 items-center'>
                     <div className='md:w-[15%] w-full'>
-                        <Image src={data?.logo?.asset?.url} alt='author' width={76} height={76} className='md:w-full md:h-full' />
+                        {
+                            data?.store?.logo?.asset?.url ? <figure className='bg-gray-950 h-[90px] p-3 rounded-lg'>
+                                <Image src={data?.store?.logo?.asset?.url} alt='author' width={76} height={76} className='md:w-full md:h-full object-contain' />
+                            </figure> :  <Image src={data?.logo?.asset?.url} alt='author' width={76} height={76} className='md:w-full md:h-full' />
+                        }
+                       
                     </div>
                     <div className='md:w-[50%] w-full'>
                         <p className='text-base font-normal text-dark'>
