@@ -1,4 +1,3 @@
-import Button from '@/components/UI/button/button'
 import Container from '@/components/UI/container'
 import React, { Suspense } from 'react'
 import RegisterForm from '@/components/registerform'
