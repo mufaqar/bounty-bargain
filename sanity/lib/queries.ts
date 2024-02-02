@@ -97,6 +97,7 @@ export const QQoupons = `*[ _type == "coupon"] | order(_createdAt desc){
           name,
           slug,
      },
+     offer_type[]
 
 }`;
 
