@@ -1,7 +1,7 @@
 import Button from '@/components/UI/button/button'
 import Container from '@/components/UI/container'
-import React from 'react'
-import RegisterForm from './registerform'
+import React, { Suspense } from 'react'
+import RegisterForm from '@/components/registerform'
 
 const RegisterNow = () => {
     return (
@@ -19,7 +19,9 @@ const RegisterNow = () => {
                     </p>
                 </div>
                 <div className='md:w-3/5 w-full'>
+                    <Suspense>
                     <RegisterForm />
+                    </Suspense>
                 </div>
             </div>
         </Container>

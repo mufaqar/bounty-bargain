@@ -1,12 +1,11 @@
 "use client"
 import { signIn } from 'next-auth/react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import React from 'react'
+import React, { Suspense } from 'react'
 import { client } from '../../../sanity/lib/client';
 import { passwordMail } from '@/utils/passwordEmail';
 
 const Login = () => {
-
   const router = useRouter();
   const searchParams = useSearchParams();
   const callbackUrl = searchParams.get("callbackUrl") || "/";
@@ -21,7 +20,6 @@ const Login = () => {
         password: 'passsword',
         callbackUrl,
       });
-      console.log("🚀 ~ onSubmit ~ res:", res)
 
       if (!res?.error) {
         router.push(callbackUrl);
@@ -58,14 +56,19 @@ const Login = () => {
       })
       .catch((error) => console.log(error));
 
-
   } 
 
-  
 
   return (
-    <button onClick={createUser}>click me</button>
+      <button onClick={createUser}>click me</button>
   )
 }
 
-export default Login
+
+export default function LoginPage() {
+  return (
+    <Suspense>
+      <Login />
+    </Suspense>
+  )
+}
