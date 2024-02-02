@@ -9,7 +9,7 @@ import { client } from "../../sanity/lib/client";
 import { QStores } from "../../sanity/lib/queries";
 
 async function getData() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_FRONEND_URL}/api/coupons`)
+  const res = await fetch(`${process.env.NEXT_PUBLIC_FRONEND_URL}api/coupons`)
   if (!res.ok) {
        throw new Error('Failed to fetch data')
   }

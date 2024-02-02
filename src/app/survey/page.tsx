@@ -1,6 +1,6 @@
 import Container from '@/components/UI/container'
 import Heading from '@/components/UI/heading/mainHeading'
-import SelectProceed from '@/components/survey/select-proceed'
+// import SelectProceed from '@/components/survey/select-proceed'
 import React from 'react'
 
 export default function SurveySelection() {
@@ -26,7 +26,7 @@ export default function SurveySelection() {
                         </p>
                     </div>
                     <div>
-                        <SelectProceed />
+                        {/* <SelectProceed /> */}
                     </div>
                 </Container>
             </section>
