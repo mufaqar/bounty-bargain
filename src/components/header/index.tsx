@@ -48,7 +48,7 @@ const Header = () => {
                          </div>
                          <ul className='text-gray-800 md:flex items-center gap-5 lg:gap-8 hidden'>
                               <li><Link href="/deals" className='hover:text-primary'>Deals / Coupons</Link></li>
-                              <li><Link href="/blogs" className='hover:text-primary'>Blog</Link></li>
+                              <li><Link href="/blog" className='hover:text-primary'>Blog</Link></li>
                               <li><Link href="/earn-money" className='flex items-center gap-1 font-semibold text-primary'>
                                    <Image src="/svg/disks.svg" width={20} height={20} alt="disk" />
                                    Earn Money
