@@ -11,58 +11,58 @@ interface Blog {
   slug: string;
   content: string;
   image: {
-    url: string; 
+    url: string;
   };
- 
+
 }
 interface Props {
-    params: {
-      slug: string;
-    };
-  }
-  
+  params: {
+    slug: string;
+  };
+}
 
-  
-  export const generateStaticParams = async () => {
-    const query = groq`*[_type == 'blogs']{
+
+
+export const generateStaticParams = async () => {
+  const query = groq`*[_type == 'blogs']{
         slug
     }`;
-    const slugs: string[] = await client.fetch(query);
-    return slugs.map((slug) => ({
-      params: { slug },
-    }));
+  const slugs: string[] = await client.fetch(query);
+  return slugs.map((slug) => ({
+    params: { slug },
+  }));
 };
-  
-  const SlugPage = async ({ params: { slug } }: Props) => {
-    const query = groq`*[_type == 'blogs' && slug.current == $slug][0]{
+
+const SlugPage = async ({ params: { slug } }: Props) => {
+  const query = groq`*[_type == 'blogs' && slug.current == $slug][0]{
           ...,
           body,
           author->
       }`;
-    const blogs: Blog = await client.fetch(query, { slug });
-  
-    return (
-      <section className="container px-4 mx-auto  pb-8">
+  const blogs: Blog = await client.fetch(query, { slug });
+
+  return (
+    <section className="container px-4 mx-auto  pb-8">
+      <div className="">
         <div className="">
-          <div className="">
-            <img
-              src={urlForImage(blogs?.image)}
-              width={500}
-              height={500}
-              alt="main image"
-              className="object-cover w-full"
-            />
-             <p className="text-3xl text-[#5442ae] font-semibold text-center p-4">
-              {blogs?.title}
-            </p>
-            <div className="content " />
-            <PortableText  value={blogs?.content} /> 
-          </div>
-       
+          <Image
+            src={urlForImage(blogs?.image)}
+            width={500}
+            height={500}
+            alt="main image"
+            className="object-cover w-full"
+          />
+          <p className="text-3xl text-[#5442ae] font-semibold text-center p-4">
+            {blogs?.title}
+          </p>
+          <div className="content " dangerouslySetInnerHTML={{ __html: blogs?.content }} />
+
         </div>
-      
-      </section>
-    );
-  };
-  
-  export default SlugPage;
+
+      </div>
+
+    </section>
+  );
+};
+
+export default SlugPage;
