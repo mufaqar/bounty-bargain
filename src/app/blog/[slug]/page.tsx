@@ -3,7 +3,7 @@ import { client } from '../../../../sanity/lib/client';
 import { urlForImage } from '../../../../sanity/lib/image';
 import Image from "next/image";
 import Link from "next/link";
-import { PortableText } from "@portabletext/react";
+import {PortableText} from '@portabletext/react'
 
 interface Blog {
   _id: string;
@@ -40,6 +40,7 @@ const SlugPage = async ({ params: { slug } }: Props) => {
           author->
       }`;
   const blogs: Blog = await client.fetch(query, { slug });
+  console.log("🚀 ~ SlugPage ~ blogs:", blogs)
 
   return (
     <section className="container px-4 mx-auto  pb-8">
@@ -55,7 +56,9 @@ const SlugPage = async ({ params: { slug } }: Props) => {
           <p className="text-3xl text-[#5442ae] font-semibold text-center p-4">
             {blogs?.title}
           </p>
-          <div className="content " dangerouslySetInnerHTML={{ __html: blogs?.content }} />
+          <div className="content ">
+          {/* <PortableText value={blogs?.content} />  */}
+            </div>
 
         </div>
 
