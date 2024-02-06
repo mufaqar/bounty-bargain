@@ -4,7 +4,21 @@ import PostBox from '@/components/blog/post-box'
 import AnotherDeal from '@/components/store/another-deal'
 import React from 'react'
 
-function Blog() {
+async function getData() {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_FRONEND_URL}api/blogs`)
+  if (!res.ok) {
+       throw new Error('Failed to fetch data')
+  }
+  const blogs = await res.json()
+  
+  return {
+    blogs
+  }
+}
+
+async function Blog() {
+  const { blogs } = await getData()
+  console.log("🚀 ~ Blog ~ blogs:", blogs)
   return (
     <section className='bg-secondary/5 py-16'>
       <Container className='py-8'>
@@ -19,7 +33,7 @@ function Blog() {
       </Container>
       <Container className='py-8'>
         <div className='grid md:grid-cols-3 grid-cols-1 gap-7'>
-          {data.map((item, idx) => {
+          {blogs?.data?.map((item:any, idx:number) => {
             return (
               <PostBox key={idx} data={item} />
             )
