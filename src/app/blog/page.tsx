@@ -9,6 +9,22 @@ export default async function Blogs() {
     const posts = await client.fetch(QBlogs);
 
 
+
+async function getData() {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_FRONEND_URL}api/blogs`)
+  if (!res.ok) {
+       throw new Error('Failed to fetch data')
+  }
+  const blogs = await res.json()
+  
+  return {
+    blogs
+  }
+}
+
+async function Blog() {
+  const { blogs } = await getData()
+
   return (
     <section className='bg-secondary/5 py-16'>
       <div className='py-8'>
@@ -23,7 +39,9 @@ export default async function Blogs() {
       </div>
       <div className='py-8'>
         <div className='grid md:grid-cols-3 grid-cols-1 gap-7'>
-          {posts.map((item:any, idx:number) => {
+
+          {blogs?.data?.map((item:any, idx:number) => {
+
             return (
               <PostBox key={idx} data={item} />
             )
