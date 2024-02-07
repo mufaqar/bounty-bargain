@@ -6,7 +6,30 @@ export const QCategories = `*[ _type == "category"] | order(_createdAt desc){
      _updatedAt
 }`;
 
+
 export const QBlogs = `*[ _type == "blogs"] | order(_createdAt desc){
+     _id,
+     title,
+     slug,
+     _createdAt,
+     _updatedAt,
+     excerpt,
+     content,
+     writtenby->{
+          fname,
+          lname
+     },
+     image{
+          asset->{
+               url
+          }
+     },
+     metatitle,
+     metadescription,
+     metaKeywords
+}`;
+
+export const QSingleBlogs = `*[ _type == "blogs" && slug.current == $slug ] | order(_createdAt desc)[0]{
      _id,
      title,
      slug,

@@ -18,7 +18,6 @@ async function getData() {
 
 async function Blog() {
   const { blogs } = await getData()
-  console.log("🚀 ~ Blog ~ blogs:", blogs)
   return (
     <section className='bg-secondary/5 py-16'>
       <Container className='py-8'>
