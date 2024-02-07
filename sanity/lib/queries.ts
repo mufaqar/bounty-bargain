@@ -142,7 +142,6 @@ export const QQoupons = `*[ _type == "coupon"] | order(_createdAt desc){
           name,
           slug,
      },
-     offer_type[]
 
 }`;
 
@@ -206,27 +205,3 @@ export const QQouponsByStore = `*[ _type == "coupon" && store._ref in *[_type=="
      },
      offer_type[]
 }`;
-
-export const QBlogs = `*[ _type == "blogs"] | order(_createdAt desc){
-     _id,
-     title,
-     slug,
-     excerpt,
-     content,
-     // releaseDate,
-     
-     writtenby->{
-          fname,
-          lname
-     },
-     image{
-          asset->{
-               url
-          }
-     },
-     metatitle,
-     metadescription,
-     metaKeywords
-}`;
-
-
