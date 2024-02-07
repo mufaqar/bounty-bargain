@@ -50,6 +50,16 @@ export const blogs = defineType({
       title: "Excerpt",
       group: "main",
     }),
+    // defineField({
+    //   title: 'Release date',
+    //   name: 'releaseDate',
+    //   type: 'date',
+    //   options: {
+    //     dateFormat: 'YYYY-MM-DD',
+    //     calendarTodayLabel: 'Today'
+    //   }
+    // }),
+
     {
       name: "content",
       title: "Content",

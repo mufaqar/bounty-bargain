@@ -1,12 +1,13 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-
+import { urlForImage } from '../../../sanity/lib/image'
 const PostBox = ({ data }: any) => {
     return (
         <div className=' rounded-3xl px-4 mx-auto'>
             <div>
                 <Link href={`/blog/${data?.slug.current}`}>
+
                     <Image src={data?.image.asset.url} alt='feature' width={336} height={203} className='w-full h-full rounded-2xl' />
                 </Link>
             </div>
@@ -14,6 +15,7 @@ const PostBox = ({ data }: any) => {
                 <p className='text-xs font-normal text-neutral/80'>
                     {data?._createdAt}
                 </p>
+
                 <Link href={`/blog/${data?.slug.current}`} className='text-base font-bold text-dark'>
                     {data?.title}
                 </Link>

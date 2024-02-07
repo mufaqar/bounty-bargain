@@ -31,7 +31,7 @@ const Footer = () => {
                             </Link>
                         </li>
                         <li>
-                            <Link href="#" className='text-sm font-normal text-dark hover:text-purple'>
+                            <Link href="/deals" className='text-sm font-normal text-dark hover:text-purple'>
                                 Exclusive Deals
                             </Link>
                         </li>
@@ -48,17 +48,17 @@ const Footer = () => {
                             </Link>
                         </li>
                         <li>
-                            <Link href="#" className='text-sm font-normal text-dark hover:text-purple'>
+                            <Link href="/terms-and-conditions" className='text-sm font-normal text-dark hover:text-purple'>
                                 Terms & Conditions
                             </Link>
                         </li>
                         <li>
-                            <Link href="#" className='text-sm font-normal text-dark hover:text-purple'>
+                            <Link href="/privacy-policy" className='text-sm font-normal text-dark hover:text-purple'>
                                 Privacy Policy
                             </Link>
                         </li>
                         <li>
-                            <Link href="#" className='text-sm font-normal text-dark hover:text-purple'>
+                            <Link href="/about-us" className='text-sm font-normal text-dark hover:text-purple'>
                                 About us
                             </Link>
                         </li>
