@@ -2,10 +2,11 @@ import Image from 'next/image'
 import Link from 'next/link';
 import React from 'react'
 import { AiOutlinePlusCircle } from 'react-icons/ai';
-import { CiStar } from "react-icons/ci";
 import { FaStar } from "react-icons/fa";
+import RateUs from '../rateUs';
 
 const Sidebar = ({data, total, totalcoupons, totalDeals}:any) => {
+    
     return (
         <div className='flex flex-col gap-7 divide-y divide-[#CACACE]'>
             <div className='pt-6'>
@@ -13,18 +14,7 @@ const Sidebar = ({data, total, totalcoupons, totalDeals}:any) => {
                     <Image src={data?.logo?.asset.url} alt='author' width={152} height={153} className='object-contain' />
                 </figure>
             </div>
-            <div className='pt-6'>
-                <p className='text-lg font-bold text-purple mb-5'>
-                    Rate {data.name} Offers
-                </p>
-                <ul className='text-2xl font-bold text-dark flex gap-1.5 items-center'>
-                    <li><CiStar /></li>
-                    <li><CiStar /></li>
-                    <li><CiStar /></li>
-                    <li><CiStar /></li>
-                    <li><CiStar /></li>
-                </ul>
-            </div>
+            <RateUs data={data} id={data._id}/>
             <div className='pt-6'>
                 <p className='text-lg font-bold text-purple mb-5'>
                     About {data.name}
@@ -36,7 +26,7 @@ const Sidebar = ({data, total, totalcoupons, totalDeals}:any) => {
                     <li><FaStar /></li>
                     <li><FaStar /></li>
                     <li className='text-sm mt-1 font-normal text-[#636363]'>
-                        4.7/5
+                        {data.grandRating}/5
                     </li>
                 </ul>
                 <p className='text-xs font-normal text-dark mt-4'>

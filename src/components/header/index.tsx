@@ -30,7 +30,7 @@ const Header = () => {
           !pathName?.includes('studio') &&
           <>
                <header className='container mx-auto px-3 z-50 relative bg-transparent md:px-0 py-4 flex justify-between items-center'>
-                    <div className='flex items-center gap-5 lg:gap-8'>
+                    <div className='flex items-center gap-5 lg:gap-10'>
                          <Logo />
                          <div className='relative'>
                               <Button
