@@ -68,6 +68,7 @@ export const QSurvey = `*[ _type == "survey"] | order(_createdAt desc){
 export const QStore = `*[ _type == "store" && slug.current == $name][0]{
      name,
      slug,
+     _id,
      logo{
           asset->{
                url
