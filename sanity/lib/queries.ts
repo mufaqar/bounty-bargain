@@ -84,6 +84,10 @@ export const QStore = `*[ _type == "store" && slug.current == $name][0]{
      },
      metaTitle,
      metaDescription,
+     similarStore[]->{
+          name,
+          slug,
+     },
      faqs[]{
           question,
           answer

@@ -137,6 +137,20 @@ export const store = defineType({
       group: "seo",
     }),
     defineField({
+      title: 'Similar Store',
+      name: 'similarStore',
+      type: 'array',
+      group: "main",
+      of: [
+        {
+          type: 'reference',
+          to: [
+            {type: 'store'},
+          ]
+        }
+      ]
+    }),
+    defineField({
       title: "Faqs",
       type: "array",
       name: "faqs",

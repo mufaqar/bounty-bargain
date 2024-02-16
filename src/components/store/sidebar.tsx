@@ -5,8 +5,9 @@ import { AiOutlinePlusCircle } from 'react-icons/ai';
 import { FaStar } from "react-icons/fa";
 import RateUs from '../rateUs';
 
-const Sidebar = ({data, total, totalcoupons, totalDeals}:any) => {
-    
+const Sidebar = ({ data, total, totalcoupons, totalDeals }: any) => {
+    console.log("🚀 ~ Sidebar ~ data:", data)
+
     return (
         <div className='flex flex-col gap-7 divide-y divide-[#CACACE]'>
             <div className='pt-6'>
@@ -14,7 +15,7 @@ const Sidebar = ({data, total, totalcoupons, totalDeals}:any) => {
                     <Image src={data?.logo?.asset.url} alt='author' width={152} height={153} className='object-contain' />
                 </figure>
             </div>
-            <RateUs data={data} id={data._id}/>
+            <RateUs data={data} id={data._id} />
             <div className='pt-6'>
                 <p className='text-lg font-bold text-purple mb-5'>
                     About {data.name}
@@ -30,7 +31,7 @@ const Sidebar = ({data, total, totalcoupons, totalDeals}:any) => {
                     </li>
                 </ul>
                 <p className='text-xs font-normal text-dark mt-4'>
-                    {data.info}                
+                    {data.info}
                 </p>
                 <Link href="#" className='text-sm font-medium text-secondary inline-flex items-center gap-4 mt-6'>
                     <span>Read more about {data.name}</span> <AiOutlinePlusCircle />
@@ -76,51 +77,16 @@ const Sidebar = ({data, total, totalcoupons, totalDeals}:any) => {
                     Similar Stores
                 </p>
                 <ul className='flex flex-col gap-2'>
-                    <li className='text-sm font-normal text-dark'>
-                        Kohl's
-                    </li>
-                    <li className='text-sm font-normal text-dark'>
-                        Macy's
-                    </li>
-                    <li className='text-sm font-normal text-dark'>
-                        Bed Bath & Beyond
-                    </li>
-                    <li className='text-sm font-normal text-dark'>
-                        Target
-                    </li>
-                    <li className='text-sm font-normal text-dark'>
-                        Old Navy
-                    </li>
-                    <li className='text-sm font-normal text-dark'>
-                        ULTA
-                    </li>
-                    <li className='text-sm font-normal text-dark'>
-                        American Eagle
-                    </li>
-                    <li className='text-sm font-normal text-dark'>
-                        Victoria's Secret
-                    </li>
-                    <li className='text-sm font-normal text-dark'>
-                        Amazon
-                    </li>
-                    <li className='text-sm font-normal text-dark'>
-                        H&M
-                    </li>
-                    <li className='text-sm font-normal text-dark'>
-                        Edible Arrangements
-                    </li>
-                    <li className='text-sm font-normal text-dark'>
-                        Gap
-                    </li>
-                    <li className='text-sm font-normal text-dark'>
-                        VistaPrint
-                    </li>
-                    <li className='text-sm font-normal text-dark'>
-                        Urban Outfitters
-                    </li>
-                    <li className='text-sm font-normal text-dark'>
-                        Bloomingdale's
-                    </li>
+                    {
+                        data?.similarStore.length > 0 ?
+                        data?.similarStore.map((item: any, idx: number) => (
+                            <li className='text-sm font-normal text-dark' key={idx}>
+                                <Link href={'/store'+item.slug.current}>{item?.name}</Link>
+                            </li>
+                        )) : <p className='text-sm font-normal text-dark'>Not found!</p>
+                    }
+
+
                 </ul>
                 <Link href="#" className='text-sm font-medium text-secondary inline-flex items-center gap-4 mt-6'>
                     <span>View All</span> <AiOutlinePlusCircle />
