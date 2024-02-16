@@ -143,6 +143,7 @@ export const QQoupons = `*[ _type == "coupon"] | order(_createdAt desc){
           name,
           slug,
      },
+     offer_type[]
 
 }`;
 
@@ -206,3 +207,6 @@ export const QQouponsByStore = `*[ _type == "coupon" && store._ref in *[_type=="
      },
      offer_type[]
 }`;
+
+
+

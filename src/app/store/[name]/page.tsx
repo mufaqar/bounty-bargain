@@ -42,6 +42,7 @@ export default async function Store({ params }: any) {
                                     <Coupon
                                         key={idx}
                                         data={item} />
+                                
                                 )
                             })}
                         </div>
