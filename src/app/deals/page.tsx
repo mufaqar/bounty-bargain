@@ -7,17 +7,31 @@ import { BiChevronRight } from 'react-icons/bi'
 import { client } from '../../../sanity/lib/client'
 import { QQoupons } from '../../../sanity/lib/queries'
 
-async function getData(): Promise<any> {
-    const coupons = await client.fetch(QQoupons)
-    return {
-        coupons
+async function getData(q: any): Promise<any> {
+    var coupons = await client.fetch(QQoupons)
+
+    if (q) {
+        coupons = coupons.filter((item: any) => (
+            item.name?.toLowerCase()?.includes(q.toLowerCase()) || 
+            item.info?.toLowerCase()?.includes(q.toLowerCase()) ||
+            item.category?.name?.toLowerCase()?.includes(q.toLowerCase()) ||
+            item.store?.name?.toLowerCase()?.includes(q.toLowerCase())
+        ))
+        return {
+            coupons
+        }
+    } else {
+        return {
+            coupons
+        }
     }
+
+
 }
 
 
-export default async function Deals() {
-    const { coupons } = await getData()
-
+export default async function Deals({ searchParams }: any) {
+    const { coupons } = await getData(searchParams?.q)
     return (
         <>
             <SearchBox />

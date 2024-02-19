@@ -7,6 +7,7 @@ import Button from '../UI/button/button';
 import { GlobalContext } from '@/context/global-context'
 
 const Coupon = ({ data }: any) => {
+    console.log("🚀 ~ Coupon ~ data:", data)
     const { openModal, setCopan } = useContext(GlobalContext)
     const [moreDetails, setMoreDetails] = useState(false)
 

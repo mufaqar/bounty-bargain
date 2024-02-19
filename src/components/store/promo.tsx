@@ -2,9 +2,10 @@
 import Link from 'next/link'
 import React, { useState } from 'react'
 import { AiOutlinePlusCircle } from "react-icons/ai";
-import {PortableText} from '@portabletext/react'
+import BlockContents from '@/components/UI/blockContent'
 
 const Promo = ({data, total}:any) => {
+    console.log("🚀 ~ Promo ~ data:", data)
     const [more , setMore] = useState(false)
     return (
         <div>
@@ -16,8 +17,8 @@ const Promo = ({data, total}:any) => {
             </h3>
             
             <div className='text-base font-normal text-dark mt-6 desc_content'>
-                <PortableText value={total?.detail} />                
-                { more && <PortableText value={total?.detail_onlick} /> }
+                <BlockContents data={data?.detail}/>
+                { more && <BlockContents data={data?.detail_onlick} /> }
             </div>
             <button onClick={()=>setMore(!more)} className='text-sm font-medium text-secondary inline-flex items-center gap-4 mt-6'>
                 {
