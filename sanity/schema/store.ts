@@ -115,14 +115,29 @@ export const store = defineType({
       type: "number",
       title: "Grand Rating",
       group: "main",
+      readOnly: true
     }),
     defineField({
-      title: "User",
-      name: "user",
+      title: "Category",
+      name: "category",
       type: "reference",
-      to: [{ type: "users" }],
+      to: [{ type: "category" }],
       group: "main",
     }),
+    defineField({
+      title: "Country",
+      name: "country",
+      type: "reference",
+      to: [{ type: "country" }],
+      group: "main",
+    }),
+    // defineField({
+    //   title: "User",
+    //   name: "user",
+    //   type: "reference",
+    //   to: [{ type: "users" }],
+    //   group: "main",
+    // }),
     // seo fields
     defineField({
       name: "metaTitle",

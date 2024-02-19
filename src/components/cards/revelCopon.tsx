@@ -17,7 +17,7 @@ const RevelCopon = () => {
           <div className='max-w-[400px] w-full px-6 py-6'>
                <div className=''>
                     <figure className='bg-[#030303] p-1 max-w-[60px] mx-auto rounded-xl'>
-                         <Image src={copan?.logo.asset.url} alt={copan?.name} width={50} height={50} />
+                         <Image src={copan?.logo?.asset.url} alt={copan?.name} width={50} height={50} />
                     </figure>
                     <Heading className="text-center mt-3">Take {copan.discount}% Off with {copan?.websiteURL?.replace('http://', '')?.replace('https://', '')} <br /> Promo Code</Heading>
                     <div className='mt-7 flex mb-4'>

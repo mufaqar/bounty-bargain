@@ -84,6 +84,14 @@ export const QStore = `*[ _type == "store" && slug.current == $name][0]{
      },
      metaTitle,
      metaDescription,
+     category->{
+          name,
+          slug,
+     },
+     country->{
+          name,
+          slug,
+     },
      similarStore[]->{
           name,
           slug,
@@ -110,6 +118,10 @@ export const QStores = `*[ _type == "store"] | order(_createdAt desc){
           fname,
           lname
      },
+     category->{
+          name,
+          slug,
+     },
      metaTitle,
      metaDescription,
      faqs[]{
@@ -134,6 +146,7 @@ export const QQoupons = `*[ _type == "coupon"] | order(_createdAt desc){
      successRate,
      websiteURL,
      couponCode,
+     offer_type,
      store->{
           name,
           slug,
@@ -210,6 +223,5 @@ export const QQouponsByStore = `*[ _type == "coupon" && store._ref in *[_type=="
      },
      offer_type[]
 }`;
-
 
 

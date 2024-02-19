@@ -4,15 +4,26 @@ import React from 'react'
 import { AiOutlinePlusCircle } from 'react-icons/ai';
 import { FaStar } from "react-icons/fa";
 import RateUs from '../rateUs';
+import { client } from '../../../sanity/lib/client';
+import { QStores } from '../../../sanity/lib/queries';
 
-const Sidebar = ({ data, total, totalcoupons, totalDeals }: any) => {
-    console.log("🚀 ~ Sidebar ~ data:", data)
+async function getData(category:any) {
+    
+    const allstores = await client.fetch(QStores)
+    const similerStore = allstores.filter((item:any) => item.category?.name === category) 
+    return {
+        similerStore,
+    }
+}
 
+
+const Sidebar = async ({ data, total, totalcoupons, totalDeals }: any) => {
+    const { similerStore } = await getData(data?.category?.name)
     return (
         <div className='flex flex-col gap-7 divide-y divide-[#CACACE]'>
             <div className='pt-6'>
                 <figure className="bg-gray-950 flex-col justify-center items-center h-[140px] w-[140px] flex p-4 rounded-lg">
-                    <Image src={data?.logo?.asset.url} alt='author' width={152} height={153} className='object-contain' />
+                    <Image src={data?.logo?.asset.url} alt='author' width={152} height={153} className='object-contain invert' />
                 </figure>
             </div>
             <RateUs data={data} id={data._id} />
@@ -78,8 +89,8 @@ const Sidebar = ({ data, total, totalcoupons, totalDeals }: any) => {
                 </p>
                 <ul className='flex flex-col gap-2'>
                     {
-                        data?.similarStore.length > 0 ?
-                        data?.similarStore.map((item: any, idx: number) => (
+                        similerStore?.length > 0 ?
+                        similerStore?.map((item: any, idx: number) => (
                             <li className='text-sm font-normal text-dark' key={idx}>
                                 <Link href={'/store'+item.slug.current}>{item?.name}</Link>
                             </li>
