@@ -10,6 +10,9 @@ async function getData(slug: any) {
   const blogsRes = await client.fetch(QSingleBlogs, {
     slug: slug
   });
+  if(!blogsRes){
+    throw new Error('Failed to fetch data')
+  }
   return {
     blogsRes
   }
