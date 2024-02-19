@@ -20,8 +20,8 @@ const Coupon = ({ data }: any) => {
                     <div className='md:w-[15%] w-full'>
                         {
                             data?.store?.logo?.asset?.url ? <figure className='bg-gray-950 h-[90px] p-3 rounded-lg'>
-                                <Image src={data?.store?.logo?.asset?.url} alt='author' width={76} height={76} className='md:w-full md:h-full object-contain invert' />
-                            </figure> : <Image src={data?.logo?.asset?.url} alt='author' width={76} height={76} className='md:w-full md:h-full invert' />
+                                <Image src={data?.store?.logo?.asset?.url} alt='author' width={76} height={86} className='md:w-full md:h-full object-contain invert' />
+                            </figure> : <Image src={data?.logo?.asset?.url} alt='author' width={76} height={86} className='md:w-full md:h-full invert' />
                         }
 
                     </div>

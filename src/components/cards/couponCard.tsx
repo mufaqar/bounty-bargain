@@ -10,8 +10,8 @@ const CouponCard = ({ data }: any) => {
      return (
           <>
                <div className='rounded-[14px] overflow-hidden border'>
-                    <figure className="bg-[#040404] flex justify-center py-5">
-                         <Image src={data.logo.asset.url} alt={data.title} width={160} height={200} />
+                    <figure className="bg-[#040404] flex justify-center py-5 h-[150px]">
+                         <Image src={data.store?.logo?.asset.url} alt={data.title} width={150} height={150} />
                     </figure>
                     <div className='p-4 px-6 text-neutral'>
                          <h2 className='font-semibold text-lg underline'>{data.name}</h2>
@@ -19,21 +19,21 @@ const CouponCard = ({ data }: any) => {
                          {
                               data.discount && <p className='font-light max-w-[200px] mb-8'>Discount</p>
                          }
-                         
-                         <div onClick={() => {
-                              setCopan(data)
-                              openModal('coupon')
-                         }}>
-                              <Button
-                                   size='large'
-                                   variants='primary'
-                                   color='primary'
-                                   fullwidth
-                                   rounded
-                              >
-                                   Get Coupon
-                              </Button>
-                         </div>
+                         <Button
+                              size='large'
+                              variants='primary'
+                              color='primary'
+                              fullwidth
+                              rounded
+                              click={
+                                   () => {
+                                        setCopan(data);
+                                        openModal('coupon')
+                                   }
+                              }
+                         >
+                              Get Coupon
+                         </Button>
                     </div>
                </div>
           </>

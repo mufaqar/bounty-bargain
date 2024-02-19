@@ -9,6 +9,7 @@ import MobileNav from './mobileNav';
 import PopularCategories from './popularCategories';
 import { GlobalContext } from '@/context/global-context';
 import { usePathname } from 'next/navigation';
+import Container from '../UI/container';
 
 const Header = () => {
 
@@ -29,7 +30,8 @@ const Header = () => {
      return (
           !pathName?.includes('studio') &&
           <>
-               <header className='container mx-auto px-3 z-50 relative bg-transparent md:px-0 py-4 flex justify-between items-center'>
+               <Container>
+               <header className='z-50 relative bg-transparent md:px-0 py-4 flex justify-between items-center'>
                     <div className='flex items-center gap-5 lg:gap-10'>
                          <Logo />
                          <div className='relative'>
@@ -74,7 +76,7 @@ const Header = () => {
                          <div className={`w-7 h-[2px] bg-primary transition-all duration-200 ease-linear transform ${isMobile ? 'absolute -rotate-45' : ''}`} />
                     </button>
                </header>
-
+               </Container>
                {/* mobile navigation  */}
                 <MobileNav isMobile={isMobile} />
           </>

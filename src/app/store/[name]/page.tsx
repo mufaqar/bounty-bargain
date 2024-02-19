@@ -52,13 +52,10 @@ export default async function Store({ params }: any) {
             <Container className='py-8'>
                 <AnotherDeal />
             </Container>
-            <Container className='py-8'>
+            <Container className='pt-8'>
                 <FaqSec data={store.faqs} name={store.name} />
             </Container>
-            <Container className='py-8'>
-                <AnotherDeal />
-            </Container>
-            <Container className='py-6 flex flex-col gap-7 '>
+            <Container className='pb-6 flex flex-col gap-7 '>
                 <Categories />
                 <div className="pt-[1px] w-full bg-neutral mt-8" />
                 {/* Popular Stores */}

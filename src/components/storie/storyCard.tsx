@@ -12,7 +12,7 @@ const StoryCard:FC<IStoryProps> = ({logo, about, link}) => {
   return (
     <div>
           <Link href={link || '#'}>
-          <figure className='bg-pure flex justify-center shadow-md p-2 min-w-[140px] min-h-[140px] w-full h-full rounded-md'>
+          <figure className='bg-pure flex justify-center shadow-md p-2 min-w-[120px] min-h-[120px] w-full h-full rounded-md'>
                <Image src={logo} alt="logo" width={140} height={140} className='object-contain'/>
           </figure>
           </Link>

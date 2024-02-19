@@ -33,7 +33,7 @@ export default async function Home() {
           <Stories data={stores}/>
           <div className="mt-12">
             <Heading>Best Deals in the moment</Heading>
-            <div className="grid md:grid-cols-4 gap-4 mt-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
               {
                 coupons?.data?.map((item:any, idx:number) => (
                   <CouponCard key={idx} data={item} />

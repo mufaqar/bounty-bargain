@@ -6,7 +6,7 @@ const Stories = ({data}:any) => {
   return (
     <div>
           <Heading>Find coupons in the best stores</Heading>
-          <div className='grid lg:grid-cols-8 2xl:grid-cols-10 md:grid-cols-7 gap-2 md:gap-3 lg:gap-5 sm:grid-cols-5 grid-cols-3 mt-5 sm:mt-10'>
+          <div className='grid lg:grid-cols-8 md:grid-cols-5 gap-2 md:gap-3 lg:gap-5 sm:grid-cols-4 grid-cols-2 mt-5 sm:mt-10'>
                {
                     data?.map((item:any,idx:number)=>(
                          <StoryCard key={idx} logo={item.logo?.asset?.url} link={`/store/${item.slug?.current}`}/>

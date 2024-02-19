@@ -2,7 +2,7 @@ import React from 'react'
 
 const FaqSec = ({ data, name }: any) => {
     return (
-        <div className='bg-white py-10 px-4 rounded-2xl max-w-[1060px] mx-auto'>
+        <div className='bg-white py-10 px-6 rounded-2xl'>
             <h2 className='text-xl font-semibold text-purple mb-6'>
                 Frequently Asked Questions (FAQ) about {name}
             </h2>
