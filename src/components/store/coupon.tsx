@@ -88,9 +88,7 @@ const Coupon = ({ data }: any) => {
                                 <li className='text-xs font-normal text-dark flex justify-between'>
                                     <strong>Type: </strong> {data?.offer_type?.[0]}
                                 </li>
-                                <li className='text-xs font-normal text-dark flex justify-between'>
-                                    <strong>Category: </strong> {data?.category?.name}
-                                </li>
+                            
                                 <li className='text-xs font-normal text-dark flex justify-between'>
                                     <strong>Country: </strong> {data?.country?.name}
                                 </li>
