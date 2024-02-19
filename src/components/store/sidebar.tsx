@@ -91,7 +91,7 @@ const Sidebar = async ({ data, total, totalcoupons, totalDeals }: any) => {
                     {
                         similerStore?.length > 0 ?
                         similerStore?.map((item: any, idx: number) => (
-                            <li className='text-sm font-normal text-dark' key={idx}>
+                            <li className='text-sm font-normal text-dark capitalize' key={idx}>
                                 <Link href={'/store'+item.slug.current}>{item?.name}</Link>
                             </li>
                         )) : <p className='text-sm font-normal text-dark'>Not found!</p>
