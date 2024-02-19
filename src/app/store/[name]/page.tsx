@@ -21,6 +21,7 @@ async function getData(name: any): Promise<any> {
 
 export default async function Store({ params }: any) {
     const { coupons, store } = await getData(params.name)
+    console.log("🚀 ~ Store ~ store:", store)
 
     const totalcoupons = coupons.filter((item: any) => item.offer_type.some((t: any) => t === 'coupon'))
     const totalDeals = coupons.filter((item: any) => item.offer_type.some((t: any) => t === 'deal'))
@@ -41,8 +42,8 @@ export default async function Store({ params }: any) {
                                 return (
                                     <Coupon
                                         key={idx}
-                                        data={item} />
-                                
+                                        data={item} 
+                                    />
                                 )
                             })}
                         </div>

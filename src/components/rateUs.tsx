@@ -53,7 +53,7 @@ const RateUs = ({ data, id }: any) => {
                          </div>
                     }
                     {
-                         rated ? <p className="text-sx">You are already Rated</p> : 
+                         // rated ? <p className="text-sx">You are already Rated</p> : 
                          <ul className='text-2xl font-bold text-dark flex gap-1.5 items-center'>
                               {
                                    [1, 2, 3, 4, 5].slice(0, starNumber).map((star, idx) => (

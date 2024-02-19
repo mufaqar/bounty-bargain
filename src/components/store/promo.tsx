@@ -16,7 +16,7 @@ const Promo = ({data, total}:any) => {
             </h3>
             
             <div className='text-base font-normal text-dark mt-6 desc_content'>
-                <PortableText value={total?.detail} />
+                <PortableText value={total?.detail} />                
                 { more && <PortableText value={total?.detail_onlick} /> }
             </div>
             <button onClick={()=>setMore(!more)} className='text-sm font-medium text-secondary inline-flex items-center gap-4 mt-6'>

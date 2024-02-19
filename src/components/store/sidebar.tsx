@@ -38,7 +38,7 @@ const Sidebar = async ({ data, total, totalcoupons, totalDeals }: any) => {
                     <li><FaStar /></li>
                     <li><FaStar /></li>
                     <li className='text-sm mt-1 font-normal text-[#636363]'>
-                        {data.grandRating}/5
+                        {data.grandRating || '5'}/5
                     </li>
                 </ul>
                 <p className='text-xs font-normal text-dark mt-4'>
@@ -96,8 +96,6 @@ const Sidebar = async ({ data, total, totalcoupons, totalDeals }: any) => {
                             </li>
                         )) : <p className='text-sm font-normal text-dark'>Not found!</p>
                     }
-
-
                 </ul>
                 <Link href="#" className='text-sm font-medium text-secondary inline-flex items-center gap-4 mt-6'>
                     <span>View All</span> <AiOutlinePlusCircle />

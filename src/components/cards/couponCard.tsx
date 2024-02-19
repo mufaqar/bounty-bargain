@@ -11,11 +11,11 @@ const CouponCard = ({ data }: any) => {
           <>
                <div className='rounded-[14px] overflow-hidden border'>
                     <figure className="bg-[#040404] flex justify-center py-5 h-[150px]">
-                         <Image src={data.store?.logo?.asset.url} alt={data.title} width={150} height={150} />
+                         <Image src={data.store?.logo?.asset.url} alt={data.title} width={150} height={150} className='object-contain invert'/>
                     </figure>
                     <div className='p-4 px-6 text-neutral'>
                          <h2 className='font-semibold text-lg underline'>{data.name}</h2>
-                         <p className='font-light max-w-[200px] my-1'>{data.info}</p>
+                         <p className='font-light max-w-[200px] my-1 line-clamp-1'>{data.info}</p>
                          {
                               data.discount && <p className='font-light max-w-[200px] mb-8'>Discount</p>
                          }
