@@ -72,7 +72,7 @@ const Coupon = ({ data }: any) => {
                     </button>
                     {
                         moreDetails && <div className='mt-4 px-4'>
-                            <ul className='grid grid-cols-3 gap-x-8 gap-y-2 capitalize'>
+                            <ul className='grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-2 capitalize'>
                                 <li className='text-xs font-normal text-dark flex justify-between'>
                                     <strong>Store: </strong> {data?.store?.name}
                                 </li>
