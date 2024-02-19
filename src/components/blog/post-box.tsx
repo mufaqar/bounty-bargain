@@ -6,9 +6,9 @@ const PostBox = ({ data }: any) => {
     return (
         <div className=' rounded-3xl px-4 mx-auto'>
             <div>
-                <Link href={`/blog/${data?.slug.current}`}>
+                <Link href={`/blog/${data?.slug?.current}`}>
 
-                    <Image src={data?.image.asset.url} alt='feature' width={336} height={203} className='w-full h-full rounded-2xl' />
+                    <Image src={data?.image?.asset.url} alt='feature' width={336} height={203} className='w-full h-full rounded-2xl' />
                 </Link>
             </div>
             <div className='mt-6'>
@@ -16,7 +16,7 @@ const PostBox = ({ data }: any) => {
                     {data?._createdAt}
                 </p>
 
-                <Link href={`/blog/${data?.slug.current}`} className='text-base font-bold text-dark'>
+                <Link href={`/blog/${data?.slug?.current}`} className='text-base font-bold text-dark'>
                     {data?.title}
                 </Link>
                 <div className='flex items-center gap-5 pt-6'>
