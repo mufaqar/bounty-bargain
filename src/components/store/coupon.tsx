@@ -80,7 +80,7 @@ const Coupon = ({ data }: any) => {
                                     <strong>Category: </strong> {data?.category?.name}
                                 </li>
                                 <li className='text-xs font-normal text-dark flex justify-between'>
-                                    <strong>Discount: </strong> {data?.discount}
+                                    <strong>Discount: </strong> {data?.discount}%
                                 </li>
                                 <li className='text-xs font-normal text-dark flex justify-between'>
                                     <strong>URL: </strong> {data?.websiteURL}
