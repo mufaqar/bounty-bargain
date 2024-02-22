@@ -23,7 +23,7 @@ async function Blog() {
       <Container className='py-8'>
         <div className='max-w-[480px] mx-auto'>
           <h1 className='text-2xl text-primary font-semibold text-center mb-5'>
-            Bounty Bargain Blog
+            Bounty Bargain Shopping Guide
           </h1>
           <p className='text-lg font-normal text-dark text-center'>
             We help you to better understand online consumer buying behavior, trends and coupon statistics.
