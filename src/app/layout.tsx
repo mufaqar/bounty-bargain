@@ -13,9 +13,9 @@ import Footer from "@/components/footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "bounty-bargain",
-  description: "",
-};
+  title: 'Bounty Bargain',
+  description: 'Bounty bargain',
+}
 
 export default function RootLayout({
   children,

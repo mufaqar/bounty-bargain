@@ -1,6 +1,12 @@
 import Heading from '@/components/UI/heading/mainHeading'
 import SearchBox from '@/components/searchBox/searchBox'
+import { Metadata } from 'next'
 import React from 'react'
+
+export const metadata: Metadata = {
+     title: 'Submit Coupon | Bounty Bargain',
+     description: 'Bounty bargain',
+}
 
 const layout = ({ children }: any) => {
      return (

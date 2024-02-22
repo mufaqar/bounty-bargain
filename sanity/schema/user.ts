@@ -25,17 +25,17 @@ export const users = defineType({
       type: "string",
       title: "Date Of Birth",
     }),
-    defineField({
-      name: "email",
-      type: "string",
-      title: "Email",
-    }),
-    defineField({
-      name: "password",
-      type: "string",
-      title: "Password",
-      readOnly: true,
-    }),
+    // defineField({
+    //   name: "email",
+    //   type: "string",
+    //   title: "Email",
+    // }),
+    // defineField({
+    //   name: "password",
+    //   type: "string",
+    //   title: "Password",
+    //   readOnly: true,
+    // }),
     defineField({
       title: 'Selected Survey',
       name: 'survey',
