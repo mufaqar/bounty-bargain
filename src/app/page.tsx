@@ -25,6 +25,7 @@ async function getData() {
 
 export default async function Home() {
   const {coupons, stores} = await getData()
+  
   return (
     <>
       <SearchBox />
