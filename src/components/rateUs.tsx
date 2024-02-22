@@ -32,6 +32,7 @@ const RateUs = ({ data, id }: any) => {
                     setStarNumber(0)
                     setRated(true)
                     localStorage.setItem('rated', 'true')
+                    window.location.reload()
                })
                .catch((err) => {
                     toast.error(`Not rated ${data?.name}!`, { position: "top-right" });

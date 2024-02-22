@@ -6,9 +6,9 @@ import { FaStar } from "react-icons/fa";
 import RateUs from '../rateUs';
 import { client } from '../../../sanity/lib/client';
 import { QStores } from '../../../sanity/lib/queries';
+import CalculateRating from '../calculateRating';
 
 async function getData(category:any) {
-    
     const allstores = await client.fetch(QStores)
     const similerStore = allstores.filter((item:any) => item.category?.name === category) 
     return {
@@ -31,16 +31,8 @@ const Sidebar = async ({ data, total, totalcoupons, totalDeals }: any) => {
                 <p className='text-lg font-bold text-purple mb-5'>
                     About {data.name}
                 </p>
-                <ul className='text-2xl font-bold text-purple flex gap-1.5 items-center'>
-                    <li><FaStar /></li>
-                    <li><FaStar /></li>
-                    <li><FaStar /></li>
-                    <li><FaStar /></li>
-                    <li><FaStar /></li>
-                    <li className='text-sm mt-1 font-normal text-[#636363]'>
-                        {data.grandRating || '5'}/5
-                    </li>
-                </ul>
+                <CalculateRating number={data.grandRating}/>
+                
                 <p className='text-xs font-normal text-dark mt-4'>
                     {data.info}
                 </p>
