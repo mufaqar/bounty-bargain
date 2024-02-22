@@ -39,7 +39,6 @@ async function getData(name:any): Promise<any> {
 
 export default async function Category({params}:any) {
     const { coupons } =  await getData(params.name)
-    console.log("🚀 ~ Category ~ coupons:", coupons)
     return (
         <>
             <SearchBox />
