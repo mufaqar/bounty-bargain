@@ -31,10 +31,7 @@ export async function generateMetadata(
   const blogsRes = await client.fetch(QSingleBlogs, {
     slug: slug
   });
-  console.log("🚀 ~ blogsRes:", blogsRes)
   var keyword = blogsRes?.metaKeywords?.split(',');
-
-
   return {
     title: `${blogsRes.metatitle || blogsRes.title} | Bounty Bargain` ,
     description: blogsRes.metadescription,
@@ -55,7 +52,6 @@ export async function generateMetadata(
 
 const SingleBlog = async ({ params }: any) => {
   const { blogsRes } = await getData(params.slug)
-  console.log("🚀 ~ SingleBlog ~ blogsRes:", blogsRes)
 
   return (
     <>

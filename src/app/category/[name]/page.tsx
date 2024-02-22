@@ -9,6 +9,7 @@ import Categories from '@/components/categories'
 import PopularStories from '@/components/popular-stories'
 import { client } from '../../../../sanity/lib/client'
 import { QQouponsByCategories } from '../../../../sanity/lib/queries'
+import { Metadata, ResolvingMetadata } from 'next'
 
 async function getData(name:any): Promise<any> {
     const coupons = await client.fetch(QQouponsByCategories, {name})
@@ -17,9 +18,28 @@ async function getData(name:any): Promise<any> {
     }
   }
   
+  export async function generateMetadata(
+    { params }: any,
+    parent?: ResolvingMetadata
+  ): Promise<Metadata> {
+    // read route params
+    const name = params.name
+    let capitalizedStr = name.replace(/-/g, ' ').split(' ').map((word:any) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+
+    return {
+      title: `${capitalizedStr} | Bounty Bargain` ,
+      alternates: {
+        canonical: '/',
+        languages: {
+          'en-US': '/en-US',
+        },
+      },
+    }
+  }
 
 export default async function Category({params}:any) {
     const { coupons } =  await getData(params.name)
+    console.log("🚀 ~ Category ~ coupons:", coupons)
     return (
         <>
             <SearchBox />
