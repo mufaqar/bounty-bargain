@@ -6,6 +6,15 @@ export const QCategories = `*[ _type == "category"] | order(_createdAt desc){
      _updatedAt
 }`;
 
+export const QSingleCategories = `*[ _type == "category" && slug.current == $name][0] {
+     _id,
+     name,
+     slug,
+     content,
+     _createdAt,
+     _updatedAt
+}`;
+
 
 export const QBlogs = `*[ _type == "blogs"] | order(_createdAt desc){
      _id,
@@ -187,6 +196,7 @@ export const QQouponsByCategories = `*[ _type == "coupon" && category._ref in *[
      category->{
           name,
           slug,
+          
      },
      offer_type[]
 }`;
