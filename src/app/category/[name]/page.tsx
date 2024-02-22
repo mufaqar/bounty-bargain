@@ -40,7 +40,6 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
 
 export default async function Category({ params }: any) {
   const { coupons, category } = await getData(params.name)
-  console.log("🚀 ~ Category ~ category:", category)
   return (
     <>
       <SearchBox />
