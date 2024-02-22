@@ -1,11 +1,7 @@
 import React from 'react'
 
 
-const Layout = ({
-     children,
-}: Readonly<{
-     children: React.ReactNode;
-}>) => {
+const Layout = ({ children }:any) => {
      return (
           <div>{children}</div>
      )

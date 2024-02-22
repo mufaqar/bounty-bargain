@@ -9,7 +9,7 @@ import Categories from '@/components/categories'
 import PopularStories from '@/components/popular-stories'
 import { client } from '../../../../sanity/lib/client'
 import { QQouponsByCategories } from '../../../../sanity/lib/queries'
-import { Metadata, ResolvingMetadata } from 'next'
+import { Metadata } from 'next'
 
 async function getData(name:any): Promise<any> {
     const coupons = await client.fetch(QQouponsByCategories, {name})
@@ -18,10 +18,7 @@ async function getData(name:any): Promise<any> {
     }
   }
   
-  export async function generateMetadata(
-    { params }: any,
-    parent?: ResolvingMetadata
-  ): Promise<Metadata> {
+  export async function generateMetadata( { params }: any): Promise<Metadata> {
     // read route params
     const name = params.name
     let capitalizedStr = name.replace(/-/g, ' ').split(' ').map((word:any) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');

@@ -5,7 +5,7 @@ import { client } from '../../../../sanity/lib/client';
 import { QSingleBlogs } from '../../../../sanity/lib/queries';
 import Image from 'next/image';
 import { PortableText } from '@portabletext/react'
-import { Metadata, ResolvingMetadata } from 'next';
+import { Metadata } from 'next';
 
 async function getData(slug: any) {
   const blogsRes = await client.fetch(QSingleBlogs, {
@@ -21,8 +21,7 @@ async function getData(slug: any) {
 
 
 export async function generateMetadata(
-  { params }: any,
-  parent?: ResolvingMetadata
+  { params }: any
 ): Promise<Metadata> {
   // read route params
   const slug = params.slug
