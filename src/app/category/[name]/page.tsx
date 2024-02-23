@@ -25,10 +25,20 @@ async function getData(name: any): Promise<any> {
 export async function generateMetadata({ params }: any): Promise<Metadata> {
   // read route params
   const name = params.name
+  
+  const category = await client.fetch(QSingleCategories, { name })
+
   let capitalizedStr = name.replace(/-/g, ' ').split(' ').map((word: any) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+  var keyword = category?.metaKeywords?.split(',');
 
   return {
-    title: `${capitalizedStr} | Bounty Bargain`,
+    title: `${ category?.name || capitalizedStr} | Bounty Bargain`,
+    description: category?.metadescription,
+    keywords: keyword,
+    openGraph: {
+      title: category?.metatitle,
+      description: category?.metadescription,
+    },
     alternates: {
       canonical: '/',
       languages: {

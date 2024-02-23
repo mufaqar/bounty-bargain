@@ -36,18 +36,18 @@ export const users = defineType({
     //   title: "Password",
     //   readOnly: true,
     // }),
-    defineField({
-      title: 'Selected Survey',
-      name: 'survey',
-      type: 'array',
-      of: [
-        {
-          type: 'reference',
-          to: [
-            {type: 'survey'},
-          ]
-        }
-      ]
-    })
+    // defineField({
+    //   title: 'Selected Survey',
+    //   name: 'survey',
+    //   type: 'array',
+    //   of: [
+    //     {
+    //       type: 'reference',
+    //       to: [
+    //         {type: 'survey'},
+    //       ]
+    //     }
+    //   ]
+    // })
   ],
 });

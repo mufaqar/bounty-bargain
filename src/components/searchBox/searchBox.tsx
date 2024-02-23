@@ -22,7 +22,7 @@ const SearchBox = () => {
                               <FiSearch className='text-xl' />
                               <input type='text' value={input} onChange={(e) => setInput(e.target.value)} className='placeholder:text-light outline-none w-full' placeholder='What are you looking for?' />
                          </div>
-                         { input && <SearchResults input={input}/> }
+                         <SearchResults input={input}/> 
                          
                     </div>
 

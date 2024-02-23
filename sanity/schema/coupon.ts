@@ -48,6 +48,11 @@ export const coupon = defineType({
       title: "Coupon Code",
     }),
     defineField({
+      title: 'is verified',
+      name: 'isverified',
+      type: 'boolean'
+    }),
+    defineField({
       title: "Store",
       name: "store",
       type: "reference",

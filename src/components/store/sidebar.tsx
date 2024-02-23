@@ -7,9 +7,11 @@ import RateUs from '../rateUs';
 import { client } from '../../../sanity/lib/client';
 import { QStores } from '../../../sanity/lib/queries';
 import CalculateRating from '../calculateRating';
+import AffiliateButton from './affiliateButton';
 
 async function getData(category:any) {
     const allstores = await client.fetch(QStores)
+    
     const similerStore = allstores.filter((item:any) => item.category?.name === category) 
     return {
         similerStore,
@@ -25,6 +27,7 @@ const Sidebar = async ({ data, total, totalcoupons, totalDeals }: any) => {
                 <figure className="bg-gray-950 flex-col justify-center items-center h-[140px] w-[140px] flex p-4 rounded-lg">
                     <Image src={data?.logo?.asset.url} alt='author' width={152} height={153} className='object-contain invert' />
                 </figure>
+                <AffiliateButton data={data} />
             </div>
             <RateUs data={data} id={data._id} />
             <div className='pt-6'>
@@ -32,7 +35,6 @@ const Sidebar = async ({ data, total, totalcoupons, totalDeals }: any) => {
                     About {data.name}
                 </p>
                 <CalculateRating number={data.grandRating}/>
-                
                 <p className='text-xs font-normal text-dark mt-4'>
                     {data.info}
                 </p>

@@ -12,7 +12,10 @@ export const QSingleCategories = `*[ _type == "category" && slug.current == $nam
      slug,
      content,
      _createdAt,
-     _updatedAt
+     _updatedAt,
+     metatitle,
+     metadescription,
+     metaKeywords
 }`;
 
 
@@ -78,6 +81,7 @@ export const QStore = `*[ _type == "store" && slug.current == $name][0]{
      name,
      slug,
      _id,
+     _type,
      logo{
           asset->{
                url
@@ -114,6 +118,8 @@ export const QStore = `*[ _type == "store" && slug.current == $name][0]{
 export const QStores = `*[ _type == "store"] | order(_createdAt desc){
      name,
      slug,
+     _type,
+     _id,
      logo{
           asset->{
                url
@@ -139,9 +145,10 @@ export const QStores = `*[ _type == "store"] | order(_createdAt desc){
      }
 }`;
 
-export const QQoupons = `*[ _type == "coupon"] | order(_createdAt desc){
+export const QQoupons = `*[ _type == "coupon" && isverified == true] | order(_createdAt desc){
      _id,
      name,
+     _type,
      logo{
           asset->{
                url
@@ -173,9 +180,10 @@ export const QQoupons = `*[ _type == "coupon"] | order(_createdAt desc){
 }`;
 
 
-export const QQouponsByCategories = `*[ _type == "coupon" && category._ref in *[_type=="category" && slug.current == $name]._id ] | order(_createdAt desc){
+export const QQouponsByCategories = `*[ _type == "coupon" && category._ref in *[_type=="category" && slug.current == $name]._id && isverified == true] | order(_createdAt desc){
      _id,
      name,
+     _type,
      logo{
           asset->{
                url
@@ -202,9 +210,10 @@ export const QQouponsByCategories = `*[ _type == "coupon" && category._ref in *[
 }`;
 
 
-export const QQouponsByStore = `*[ _type == "coupon" && store._ref in *[_type=="store" && slug.current == $name]._id ] | order(_createdAt desc){
+export const QQouponsByStore = `*[ _type == "coupon" && store._ref in *[_type=="store" && slug.current == $name]._id && isverified == true] | order(_createdAt desc){
      _id,
      name,
+     _type,
      logo{
           asset->{
                url

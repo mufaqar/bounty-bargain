@@ -12,6 +12,7 @@ import useCopyToClipBoard from '@/hooks/useCopyToClipBoard'
 const RevelCopon = () => {
      const { copan } = useContext(GlobalContext)
      const {inputRef, handleCopyToClipboard} = useCopyToClipBoard()
+     const { openModal, setCopan } = useContext(GlobalContext)
 
      return (
           <div className='max-w-[400px] w-full px-6 py-6'>
@@ -31,7 +32,13 @@ const RevelCopon = () => {
                          <Button color='primary' fullwidth variants='primary' size='medium' rounded>Use at {copan?.websiteURL?.replace('http://', '')?.replace('https://', '')}</Button>
                     </Link>
                     <p className="text-sm mt-3 text-center px-1">Copy the code, then go to <strong>{copan?.websiteURL?.replace('http://', '')?.replace('https://', '')}</strong> and paste it in during checkout. Your savings will be applied!</p>
-                    <h6 className="text-primary text-center font-semibold mt-4">Did this deal work for you?</h6>
+                    <div className="flex mt-4 gap-2 flex-wrap">
+                    <h6 className="text-primary text-center font-semibold ">Did this deal work for you?</h6>
+                    <h6 onClick={()=>{
+                         setCopan(copan);
+                         openModal('affiliate')
+                    }} className="text-secondary underline text-center font-semibold cursor-pointer">Get affiliate link!</h6>
+                    </div>
                     <div className="mt-3 flex justify-center gap-3">
                          <button className="bg-light flex item-center text-neutral gap-1 px-3 py-2 hover:bg-primary hover:text-white rounded-md">
                               <FaRegThumbsUp className="text-green-400 pt-[2px] text-xl"/>

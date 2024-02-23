@@ -1,19 +1,36 @@
+import { AiFillDatabase } from "react-icons/ai";
+import { TbSeo } from "react-icons/tb";
 import { defineType, defineField } from "sanity";
 
 export const category = defineType({
   name: "category",
   type: "document",
   title: "Category",
+  groups: [
+    {
+      title: "Main",
+      name: "main",
+      icon: AiFillDatabase,
+      default: true,
+    },
+    {
+      title: "SEO",
+      name: "seo",
+      icon: TbSeo,
+    },
+  ],
   fields: [
     defineField({
       name: "name",
       type: "string",
       title: "Name",
+      group: "main",
     }),
     defineField({
       title: "Slug",
       name: "slug",
       type: "slug",
+      group: "main",
       options: {
         source: "name",
         maxLength: 200, // will be ignored if slugify is set
@@ -25,6 +42,7 @@ export const category = defineType({
       name: "content",
       title: "Content",
       type: "array",
+      group: "main",
       of: [
         {
           type: "block",
@@ -49,5 +67,24 @@ export const category = defineType({
         },
       ],
     },
+    defineField({
+      name: "metatitle",
+      type: "string",
+      title: "Meta Title",
+      group: "seo",
+    }),
+    defineField({
+      name: "metadescription",
+      type: "text",
+      title: "Meta Description",
+      group: "seo",
+    }),
+    defineField({
+      name: "metaKeywords",
+      description: 'please seprate keyword with "," eg:( keyword1, keyword2, ... ) ',
+      type: "text",
+      title: "Meta Keywords",
+      group: "seo",
+    }),
   ],
 });

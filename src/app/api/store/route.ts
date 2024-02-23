@@ -1,6 +1,12 @@
 import { NextResponse } from "next/server";
 import { client } from "../../../../sanity/lib/client";
-import { QStore } from "../../../../sanity/lib/queries";
+import { QStore, QStores } from "../../../../sanity/lib/queries";
+
+
+export async function GET() {
+  const couponsRes = await client.fetch(QStores);
+  return Response.json({ data: couponsRes });
+}
 
 export async function POST(req: Request) {
 
