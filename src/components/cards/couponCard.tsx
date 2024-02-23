@@ -4,7 +4,6 @@ import React, { useContext } from 'react'
 import Button from '../UI/button/button'
 import { GlobalContext } from '@/context/global-context'
 
-
 const CouponCard = ({ data }: any) => {
      const { openModal, setCopan } = useContext(GlobalContext)
      return (

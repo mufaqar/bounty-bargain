@@ -5,10 +5,13 @@ import { CiStar } from "react-icons/ci";
 import { FaChevronDown } from "react-icons/fa";
 import Button from '../UI/button/button';
 import { GlobalContext } from '@/context/global-context'
+import { NewlyAddedCoupon } from '@/utils';
 
 const Coupon = ({ data }: any) => {
     const { openModal, setCopan } = useContext(GlobalContext)
     const [moreDetails, setMoreDetails] = useState(false)
+    const isNewly = NewlyAddedCoupon(data?._createdAt)
+    console.log("🚀 ~ Coupon ~ newly:", isNewly)
 
     const handleMoreSetails = () => {
         setMoreDetails(!moreDetails)
@@ -45,8 +48,8 @@ const Coupon = ({ data }: any) => {
                         </ul>
                     </div>
                     <div className='md:w-[35%] w-full'>
-                        {data?.deal && <p className='bg-[#FDDCB5] rounded-[31px] text-[9px] leading-3 font-medium text-dark flex w-fit md:ml-auto items-center gap-1 p-1 mb-2'>
-                            <CiStar color='#FAA745' size={12} /> <span>{data?.deal}</span>
+                        {isNewly && <p className='bg-[#FDDCB5] rounded-[31px] text-[9px] leading-3 font-medium text-dark flex w-fit md:ml-auto items-center gap-1 p-1 px-2 mb-2'>
+                            <CiStar color='#FAA745' size={12} /> <span className='text-gray-700'>Newly added</span>
                         </p>}
 
                         <Button
