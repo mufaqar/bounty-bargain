@@ -11,7 +11,6 @@ const Coupon = ({ data }: any) => {
     const { openModal, setCopan } = useContext(GlobalContext)
     const [moreDetails, setMoreDetails] = useState(false)
     const isNewly = NewlyAddedCoupon(data?._createdAt)
-    console.log("🚀 ~ Coupon ~ newly:", isNewly)
 
     const handleMoreSetails = () => {
         setMoreDetails(!moreDetails)
