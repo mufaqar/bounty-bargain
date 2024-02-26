@@ -10,11 +10,11 @@ export const coupon = defineType({
       type: "string",
       title: "Name",
     }),
-    defineField({
-      name: "logo",
-      type: "image",
-      title: "Logo",
-    }),
+    // defineField({
+    //   name: "logo",
+    //   type: "image",
+    //   title: "Logo",
+    // }),
     defineField({
       name: "discount",
       description: 'add discount eg: 20',

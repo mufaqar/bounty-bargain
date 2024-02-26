@@ -113,7 +113,7 @@ export const store = defineType({
     defineField({
       name: "grandRating",
       type: "number",
-      title: "Grand Rating",
+      title: "Average Rating",
       group: "main",
       readOnly: true
     }),
@@ -151,20 +151,20 @@ export const store = defineType({
       title: "Meta Description",
       group: "seo",
     }),
-    defineField({
-      title: 'Similar Store',
-      name: 'similarStore',
-      type: 'array',
-      group: "main",
-      of: [
-        {
-          type: 'reference',
-          to: [
-            {type: 'store'},
-          ]
-        }
-      ]
-    }),
+    // defineField({
+    //   title: 'Similar Store',
+    //   name: 'similarStore',
+    //   type: 'array',
+    //   group: "main",
+    //   of: [
+    //     {
+    //       type: 'reference',
+    //       to: [
+    //         {type: 'store'},
+    //       ]
+    //     }
+    //   ]
+    // }),
     defineField({
       title: "Faqs",
       type: "array",

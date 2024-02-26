@@ -21,7 +21,7 @@ const PostBox = ({ data }: any) => {
                 </Link>
                 <div className='flex items-center gap-5 pt-6'>
                     <div className='w-[41px] h-[41px] rounded-full'>
-                        <Image src="/images/feature.png" alt='feature' width={336} height={203} className='w-full h-full rounded-full' />
+                        <Image src={data?.writtenby?.profile_image?.asset?.url ? data?.writtenby?.profile_image?.asset?.url : "/images/feature.png"} alt='feature' width={336} height={203} className='w-full h-full rounded-full' />
                     </div>
                     <div>
                         <h4 className='text-sm font-semibold text-dark'>

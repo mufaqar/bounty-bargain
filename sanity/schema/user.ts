@@ -11,20 +11,25 @@ export const users = defineType({
       title: "First Name",
     }),
     defineField({
-      name: "lname",
-      type: "string",
-      title: "Last Name",
+      name: "profile_image",
+      type: "image",
+      title: "Profile Image",
     }),
-    defineField({
-      name: "gender",
-      type: "string",
-      title: "Gender",
-    }),
-    defineField({
-      name: "dateofbirth",
-      type: "string",
-      title: "Date Of Birth",
-    }),
+    // defineField({
+    //   name: "lname",
+    //   type: "string",
+    //   title: "Last Name",
+    // }),
+    // defineField({
+    //   name: "gender",
+    //   type: "string",
+    //   title: "Gender",
+    // }),
+    // defineField({
+    //   name: "dateofbirth",
+    //   type: "string",
+    //   title: "Date Of Birth",
+    // }),
     // defineField({
     //   name: "email",
     //   type: "string",

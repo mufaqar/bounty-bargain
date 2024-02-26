@@ -20,12 +20,9 @@ const Coupon = ({ data }: any) => {
             <div className='bg-white p-5 w-full rounded-xl shadow-3xl'>
                 <div className='flex md:flex-row flex-col gap-7 items-center'>
                     <div className='md:w-[15%] w-full'>
-                        {
-                            data?.store?.logo?.asset?.url ? <figure className='bg-gray-950 h-[90px] p-3 rounded-lg'>
-                                <Image src={data?.store?.logo?.asset?.url} alt='author' width={76} height={86} className='md:w-full md:h-full object-contain invert' />
-                            </figure> : <Image src={data?.logo?.asset?.url} alt='author' width={76} height={86} className='md:w-full md:h-full invert' />
-                        }
-
+                        <figure className='bg-gray-950 h-[90px] p-3 rounded-lg'>
+                            <Image src={data?.store?.logo?.asset?.url} alt='author' width={76} height={86} className='md:w-full md:h-full object-contain invert' />
+                        </figure>
                     </div>
                     <div className='md:w-[50%] w-full'>
                         <p className='text-base font-normal text-dark'>
@@ -90,7 +87,7 @@ const Coupon = ({ data }: any) => {
                                 <li className='text-xs font-normal text-dark flex justify-between'>
                                     <strong>Type: </strong> {data?.offer_type?.[0]}
                                 </li>
-                            
+
                                 <li className='text-xs font-normal text-dark flex justify-between'>
                                     <strong>Country: </strong> {data?.country?.name}
                                 </li>

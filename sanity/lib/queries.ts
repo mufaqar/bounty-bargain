@@ -29,7 +29,11 @@ export const QBlogs = `*[ _type == "blogs"] | order(_createdAt desc){
      content,
      writtenby->{
           fname,
-          lname
+          profile_image{
+               asset->{
+                    url
+               }
+          }          
      },
      image{
           asset->{
@@ -200,6 +204,11 @@ export const QQouponsByCategories = `*[ _type == "coupon" && category._ref in *[
      store->{
           name,
           slug,
+          logo{
+               asset->{
+                    url
+               }
+          },
      },
      category->{
           name,
