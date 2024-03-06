@@ -10,6 +10,8 @@ async function getData() {
        throw new Error('Failed to fetch data')
   }
   const blogs = await res.json()
+  console.log("🚀 ~ getData ~ blogs:", blogs)
+ 
   
   return {
     blogs
@@ -18,6 +20,7 @@ async function getData() {
 
 async function Blog() {
   const { blogs } = await getData()
+
   return (
     <section className='bg-secondary/5 py-16'>
       <Container className='py-8'>
