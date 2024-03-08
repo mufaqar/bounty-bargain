@@ -20,7 +20,7 @@ const Categories = async () => {
                <div className="mt-20">
                     <div className='flex items-center justify-between'>
                          <Heading>Popular Categories</Heading>
-                         <GoPlusCircle className="text-2xl" />
+                         {/* <GoPlusCircle className="text-2xl" /> */}
                     </div>
                     <ul className="mt-8 flex flex-wrap gap-4">
                          {

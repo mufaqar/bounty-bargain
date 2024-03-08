@@ -70,22 +70,22 @@ const Footer = () => {
                     </h6>
                     <ul className='flex flex-row gap-7'>
                         <li>
-                            <Link href="#" className='text-2xl font-normal text-dark hover:text-purple'>
+                            <Link href="#" target="_blank" className='text-2xl font-normal text-dark hover:text-purple'>
                                 <FaFacebookF />
                             </Link>
                         </li>
                         <li>
-                            <Link href="#" className='text-2xl font-normal text-dark hover:text-purple'>
+                            <Link href="#" target="_blank" className='text-2xl font-normal text-dark hover:text-purple'>
                                 <FaTwitter />
                             </Link>
                         </li>
                         <li>
-                            <Link href="#" className='text-2xl font-normal text-dark hover:text-purple'>
+                            <Link href="#" target="_blank" className='text-2xl font-normal text-dark hover:text-purple'>
                                 <FaInstagram />
                             </Link>
                         </li>
                         <li>
-                            <Link href="#" className='text-2xl font-normal text-dark hover:text-purple'>
+                            <Link href="https://www.linkedin.com/company/bounty-media/" target="_blank" className='text-2xl font-normal text-dark hover:text-purple'>
                                 <FaLinkedinIn />
                             </Link>
                         </li>

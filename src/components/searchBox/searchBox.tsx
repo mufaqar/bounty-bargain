@@ -20,7 +20,7 @@ const SearchBox = () => {
                     <div className="flex-1 relative ">
                          <div className='border flex items-center p-2.5 rounded-md text-neutral gap-2'>
                               <FiSearch className='text-xl' />
-                              <input type='text' value={input} onChange={(e) => setInput(e.target.value)} className='placeholder:text-light outline-none w-full' placeholder='What are you looking for?' />
+                              <input type='text' value={input} onChange={(e) => setInput(e.target.value)} className='placeholder:text-[#CACACE] outline-none w-full' placeholder='What are you looking for?' />
                          </div>
                          <SearchResults input={input}/> 
                          
