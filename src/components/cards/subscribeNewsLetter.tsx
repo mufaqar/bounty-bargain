@@ -14,7 +14,7 @@ const SubscribeNewsLetter = () => {
                     {
                          !newsLetterConfurmation && <div>
                               <Heading className="text-primary text-center">Unlock Exclusive Deals: <br /> Join us today!</Heading>
-                              <p className='text-center mt-6 text-neutral'><strong className='text-primary'>Subscribe our list</strong> now and get early access to amazing discounts and promo codes from your favorite brands and local businesses. Don't miss out on the opportunity to save big on special deals.</p>
+                              <p className='text-center mt-6 text-neutral'><strong className='text-primary'>Subscribe to our list</strong> now and get early access to amazing discounts and promo codes from your favorite brands and local businesses. Don't miss out on the opportunity to save big on special deals.</p>
                               <Subscribe />
                          </div>
                     }
