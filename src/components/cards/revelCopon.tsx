@@ -32,12 +32,12 @@ const RevelCopon = () => {
                          <Button color='primary' fullwidth variants='primary' size='medium' rounded>Use at {copan?.websiteURL?.replace('http://', '')?.replace('https://', '')}</Button>
                     </Link>
                     <p className="text-sm mt-3 text-center px-1">Copy the code, then go to <strong>{copan?.websiteURL?.replace('http://', '')?.replace('https://', '')}</strong> and paste it in during checkout. Your savings will be applied!</p>
-                    <div className="flex mt-4 gap-2 flex-wrap">
+                    <div className="flex mt-4 gap-2 justify-center flex-wrap">
                     <h6 className="text-primary text-center font-semibold ">Did this deal work for you?</h6>
-                    <h6 onClick={()=>{
+                    {/* <h6 onClick={()=>{
                          setCopan(copan);
                          openModal('affiliate')
-                    }} className="text-secondary underline text-center font-semibold cursor-pointer">Get affiliate link!</h6>
+                    }} className="text-secondary underline text-center font-semibold cursor-pointer">Get affiliate link!</h6> */}
                     </div>
                     <div className="mt-3 flex justify-center gap-3">
                          <button className="bg-light flex item-center text-neutral gap-1 px-3 py-2 hover:bg-primary hover:text-white rounded-md">

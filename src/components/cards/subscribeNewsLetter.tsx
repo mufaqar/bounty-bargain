@@ -18,7 +18,6 @@ const SubscribeNewsLetter = () => {
                               <Subscribe />
                          </div>
                     }
-
                     {
                          newsLetterConfurmation && <div>
                               <Heading className="text-primary text-center">Welcome to the Club!</Heading>
