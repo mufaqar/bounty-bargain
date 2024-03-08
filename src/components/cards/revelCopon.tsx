@@ -11,8 +11,11 @@ import useCopyToClipBoard from '@/hooks/useCopyToClipBoard'
 
 const RevelCopon = () => {
      const { copan } = useContext(GlobalContext)
+     console.log("🚀 ~ RevelCopon ~ copan:", copan)
      const {inputRef, handleCopyToClipboard} = useCopyToClipBoard()
      const { openModal, setCopan } = useContext(GlobalContext)
+     var isDeal = copan?.offer_type.includes("deal")
+     console.log("🚀 ~ RevelCopon ~ isDeal:", isDeal)
 
      return (
           <div className='max-w-[400px] w-full px-6 py-6'>
@@ -20,14 +23,17 @@ const RevelCopon = () => {
                     <figure className='bg-[#030303] p-1 max-w-[60px] mx-auto rounded-xl'>
                          <Image src={copan?.logo?.asset.url} alt={copan?.name} width={50} height={50} />
                     </figure>
-                    <Heading className="text-center mt-3">Take {copan.discount}% Off with {copan?.websiteURL?.replace('http://', '')?.replace('https://', '')} <br /> Promo Code</Heading>
-                    <div className='mt-7 flex mb-4'>
+                    <Heading className="text-center mb-7 mt-3">Take {copan.discount}% Off with {copan?.websiteURL?.replace('http://', '')?.replace('https://', '')} <br /> {!isDeal && 'Promo Code'}</Heading>
+                    {
+                         !isDeal && <div className=' flex mb-4'>
                          <input type={`text`} value={copan.couponCode} ref={inputRef} className="border outline-none p-2 flex-1 text-gray-400 rounded-bl-md rounded-tl-md" />
                          <button onClick={handleCopyToClipboard} className="text-primary text-sm bg-primary/20 px-3 flex items-center gap-1 rounded-br-md rounded-tr-md">
                               <IoCopyOutline />
                               Copy
                          </button>
                     </div>
+                    }
+                    
                     <Link href={copan.websiteURL} target='_blank'>
                          <Button color='primary' fullwidth variants='primary' size='medium' rounded>Use at {copan?.websiteURL?.replace('http://', '')?.replace('https://', '')}</Button>
                     </Link>
