@@ -13,10 +13,9 @@ import Container from '../UI/container';
 
 const Header = () => {
 
-     const { openModal } = useContext(GlobalContext)
+     const { openModal, isCategory, setIsCategory } = useContext(GlobalContext)
      const pathName = usePathname()
      const [isMobile, setIsMobile] = useState<boolean>(false)
-     const [isCategory, setIsCategory] = useState<boolean>(false)
      const [categories, setCategories] = useState<any>()
 
      useEffect(()=>{
@@ -26,6 +25,10 @@ const Header = () => {
                setCategories(result.data)
           })()
      },[])
+
+     const handleCategoryToggle = () => {
+          setIsCategory(!isCategory)
+     }
 
      return (
           !pathName?.includes('studio') &&
@@ -40,7 +43,7 @@ const Header = () => {
                                    rounded size="medium"
                                    color="secondary"
                                    className="hidden md:flex"
-                                   click={()=>setIsCategory(!isCategory)}
+                                   click={()=>handleCategoryToggle()}
                               >
                                    <span className="flex items-center gap-1">Categories <IoIosArrowDown /></span>
                               </Button>
