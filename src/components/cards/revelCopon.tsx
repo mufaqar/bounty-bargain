@@ -15,13 +15,16 @@ const RevelCopon = () => {
      const {inputRef, handleCopyToClipboard} = useCopyToClipBoard()
      const { openModal, setCopan } = useContext(GlobalContext)
      var isDeal = copan?.offer_type.includes("deal")
-     console.log("🚀 ~ RevelCopon ~ isDeal:", isDeal)
 
      return (
           <div className='max-w-[400px] w-full px-6 py-6'>
                <div className=''>
-                    <figure className='bg-[#030303] p-1 max-w-[60px] mx-auto rounded-xl'>
-                         <Image src={copan?.logo?.asset.url} alt={copan?.name} width={50} height={50} />
+                    <figure className=' p-1 flex items-center justify-center flex-col w-[60px] h-[60px]  mx-auto rounded-xl' 
+                    style={{
+                         backgroundColor: copan?.store?.backgroundColor?.hex || '#030303'
+                     }}
+                    >
+                         <Image src={copan?.store?.logo?.asset.url} alt={copan?.name} width={50} height={50} />
                     </figure>
                     <Heading className="text-center mb-7 mt-3">Take {copan.discount}% Off with {copan?.websiteURL?.replace('http://', '')?.replace('https://', '')} <br /> {!isDeal && 'Promo Code'}</Heading>
                     {
