@@ -61,7 +61,7 @@ const SearchResults = ({ input }: any) => {
                               {
                                    stores?.slice(0, 5).map((item: any, idx: number) => (
                                         <li key={idx} className='text-sm p-[1px] px-2 capitalize hover:text-primary cursor-pointer' onClick={() => {
-                                             router.push(`/store/${item.slug.current}`)
+                                             router.push(`/${item.slug.current}`)
                                         }}>
                                              {item.name}
                                         </li>

@@ -21,7 +21,7 @@ const PopularStories = async () => {
                     <div className='grid lg:grid-cols-5 md:grid-cols-4 gap-2 md:gap-3 lg:gap-5 sm:grid-cols-3 grid-cols-2 mt-5 sm:mt-10'>
                          {
                               stores?.slice(0, 10).map((item: any, idx: number) => (
-                                   <StoryCard key={idx} height="large" logo={item.logo?.asset?.url} about={item?.info?.slice(0, 42)} link={`/store/${item.slug?.current}`} />
+                                   <StoryCard key={idx} height="large" logo={item.logo?.asset?.url} about={item?.info?.slice(0, 42)} link={`/${item.slug?.current}`} />
                               ))
                          }
                     </div>

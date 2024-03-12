@@ -5,8 +5,8 @@ import Promo from '@/components/store/promo'
 import Sidebar from '@/components/store/sidebar'
 import React from 'react'
 import Container from '@/components/UI/container'
-import { client } from '../../../../sanity/lib/client'
-import { QQouponsByStore, QStore } from '../../../../sanity/lib/queries'
+import { client } from '../../../sanity/lib/client'
+import { QQouponsByStore, QStore } from '../../../sanity/lib/queries'
 import Categories from '@/components/categories'
 import PopularStories from '@/components/popular-stories'
 import { GetCurrentDateInISOFormat } from '@/utils'
@@ -21,7 +21,7 @@ async function getData(name: any): Promise<any> {
 }
 
 export default async function Store({ params }: any) {
-    const { coupons, store } = await getData(params.name)
+    const { coupons, store } = await getData(params.store)
     const currentDateInISOFormat = GetCurrentDateInISOFormat();
     const todaysOffer = coupons.filter((item:any)=>item._createdAt.slice(0, 10) === currentDateInISOFormat )
     const highestDiscount = Math.max(...todaysOffer.map((offer:any) => offer.discount));
