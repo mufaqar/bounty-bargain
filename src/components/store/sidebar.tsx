@@ -24,8 +24,10 @@ const Sidebar = async ({ data, total, totalcoupons, totalDeals, highestDiscount 
     return (
         <div className='flex flex-col gap-7 divide-y divide-[#CACACE]'>
             <div className='pt-6'>
-                <figure className="bg-gray-950 flex-col justify-center items-center h-[140px] w-[140px] flex p-4 rounded-lg">
-                    <Image src={data?.logo?.asset.url} alt='author' width={152} height={153} className='object-contain invert' />
+                <figure className=" flex-col justify-center items-center h-[140px] w-[140px] flex p-4 rounded-lg" style={{
+                    backgroundColor: data?.backgroundColor?.hex
+                }}>
+                    <Image src={data?.logo?.asset.url} alt='author' width={152} height={153} className='object-contain ' />
                 </figure>
                 <AffiliateButton data={data} />
             </div>

@@ -9,8 +9,10 @@ const CouponCard = ({ data }: any) => {
      return (
           <>
                <div className='rounded-[14px] overflow-hidden border'>
-                    <figure className="bg-[#040404] flex justify-center py-5 h-[150px]">
-                         <Image src={data.store?.logo?.asset.url} alt={data.title} width={150} height={150} className='object-contain invert'/>
+                    <figure className=" flex justify-center py-5 h-[150px]" style={{
+                         backgroundColor: data?.store?.backgroundColor?.hex
+                    }}>
+                         <Image src={data.store?.logo?.asset.url} alt={data.title} width={150} height={150} className='object-contain' />
                     </figure>
                     <div className='p-4 px-6 text-neutral'>
                          <h2 className='font-semibold text-lg underline'>{data.name}</h2>

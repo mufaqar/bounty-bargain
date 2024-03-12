@@ -34,7 +34,7 @@ const PostBox = ({ data }: any) => {
                         {data?.writtenby?.fname} {data?.writtenby?.lname}
                         </h4>
                         <p className='text-xs font-normal text-neutral/80'>
-                            1 min reading
+                            {data?.estimatedReadingTime} min reading
                         </p>
                     </div>
                 </div>

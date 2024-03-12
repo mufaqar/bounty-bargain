@@ -42,7 +42,10 @@ export const QBlogs = `*[ _type == "blogs"] | order(_createdAt desc){
      },
      metatitle,
      metadescription,
-     metaKeywords
+     metaKeywords,
+     "numberOfCharacters": length(pt::text(content)),
+     "estimatedWordCount": round(length(pt::text(content)) / 5),
+     "estimatedReadingTime": round(length(pt::text(content)) / 5 / 180 )
 }`;
 
 export const QSingleBlogs = `*[ _type == "blogs" && slug.current == $slug ] | order(_createdAt desc)[0]{
@@ -86,6 +89,7 @@ export const QStore = `*[ _type == "store" && slug.current == $name][0]{
      slug,
      _id,
      _type,
+     backgroundColor,
      logo{
           asset->{
                url
@@ -124,6 +128,7 @@ export const QStores = `*[ _type == "store"] | order(_createdAt desc){
      slug,
      _type,
      _id,
+     backgroundColor,
      logo{
           asset->{
                url
@@ -170,6 +175,7 @@ export const QQoupons = `*[ _type == "coupon" && isverified == true] | order(_cr
      store->{
           name,
           slug,
+          backgroundColor,
           logo{
                asset->{
                     url
@@ -204,6 +210,7 @@ export const QQouponsByCategories = `*[ _type == "coupon" && category._ref in *[
      store->{
           name,
           slug,
+          backgroundColor,
           logo{
                asset->{
                     url
@@ -239,6 +246,7 @@ export const QQouponsByStore = `*[ _type == "coupon" && store._ref in *[_type=="
      store->{
           name,
           slug,
+          backgroundColor,
           logo{
                asset->{
                     url

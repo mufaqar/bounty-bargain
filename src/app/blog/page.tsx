@@ -1,3 +1,4 @@
+
 import Container from '@/components/UI/container'
 import JoinJourney from '@/components/about/join-journey'
 import PostBox from '@/components/blog/post-box'
@@ -9,9 +10,7 @@ async function getData() {
   if (!res.ok) {
        throw new Error('Failed to fetch data')
   }
-  const blogs = await res.json()
-  console.log("🚀 ~ getData ~ blogs:", blogs)
- 
+  const blogs = await res.json() 
   
   return {
     blogs
@@ -20,6 +19,7 @@ async function getData() {
 
 async function Blog() {
   const { blogs } = await getData()
+  console.log("🚀 ~ Blog ~ blogs:", blogs)
 
   return (
     <section className='bg-secondary/5 py-16'>

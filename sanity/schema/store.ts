@@ -39,6 +39,15 @@ export const store = defineType({
       },
     }),
     defineField({
+      name: 'backgroundColor',
+      title: 'Background Color',
+      type: 'color',
+      group: "main",
+      options: {
+        disableAlpha: true
+      }
+    }),
+    defineField({
       name: "logo",
       type: "image",
       title: "Logo",

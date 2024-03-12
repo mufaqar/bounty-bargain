@@ -6,6 +6,7 @@ import { QSingleBlogs } from '../../../../sanity/lib/queries';
 import Image from 'next/image';
 import { PortableText } from '@portabletext/react'
 import { Metadata } from 'next';
+import { blogDateFormate } from '@/utils';
 
 async function getData(slug: any) {
   const blogsRes = await client.fetch(QSingleBlogs, {
@@ -61,7 +62,7 @@ const SingleBlog = async ({ params }: any) => {
           <div className="flex capitalize max-w-[1000px] gap-1 mx-auto mb-8">
             <p>{blogsRes?.writtenby.fname} {blogsRes?.writtenby.lname}</p>
             <span>-</span>
-            <p>{blogsRes?._createdAt}</p>
+            <p> {blogDateFormate(blogsRes?._createdAt)}</p>
           </div>
           <div className='text-base font-normal text-dark mt-6 max-w-[1000px] mx-auto desc_content'>
             <PortableText value={blogsRes?.content} />
