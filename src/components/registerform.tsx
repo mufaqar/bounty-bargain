@@ -161,7 +161,7 @@ const RegisterForm = () => {
                     </div>
                 </div>
                 <div>
-                    <h4 className='text-[22px] leading-[30px] font-medium text-white text-center mb-5'>
+                    <h4 className='text-[22px] leading-[30px] font-medium capitalize text-white text-center mb-5'>
                         date of Birth
                     </h4>
                     <div className='grid md:grid-cols-3 gap-7 items-center'>
@@ -192,7 +192,7 @@ const RegisterForm = () => {
                             {
                                 openDTab === 'month' && <ul className="absolute max-h-[160px] bg-white overflow-auto bar rounded-2xl w-full mt-1">
                                     {
-                                        Array.from({ length: 12 }, (_, index) => index + 1)?.map((item, idx) => (
+                                        months?.map((item, idx) => (
                                             <li onClick={() => {
                                                 handleDOB({ value: item, name: "month" });
                                                 handleTab('')
@@ -233,3 +233,21 @@ const RegisterForm = () => {
 }
 
 export default RegisterForm
+
+
+
+const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+  ];
+  
