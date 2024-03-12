@@ -30,7 +30,7 @@ export const NewlyAddedCoupon = (date: any) => {
     // Format the new date as a string in the same format
     var newDate = currentDate.toISOString();
     var currentDate = new Date();
-    
+
     var newDateObject = new Date(newDate);
     if (newDateObject > currentDate) {
         return true
@@ -40,3 +40,24 @@ export const NewlyAddedCoupon = (date: any) => {
 }
 
 
+export function GetCurrentDateInISOFormat() {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = ('0' + (now.getMonth() + 1)).slice(-2);
+    const day = ('0' + now.getDate()).slice(-2);
+    const hours = ('0' + now.getHours()).slice(-2);
+    const minutes = ('0' + now.getMinutes()).slice(-2);
+    const seconds = ('0' + now.getSeconds()).slice(-2);
+
+    const formattedDate = `${year}-${month}-${day}`;
+    return formattedDate;
+}
+
+
+
+
+export const blogDateFormate = (givenDate: any) => {
+    const dateObj = new Date(givenDate);
+    const formattedDate = `${(dateObj.getMonth() + 1).toString().padStart(2, '0')}/${dateObj.getDate().toString().padStart(2, '0')}/${dateObj.getFullYear()}, ${dateObj.getHours()}:${dateObj.getMinutes().toString().padStart(2, '0')} ${dateObj.getHours() >= 12 ? 'PM' : 'AM'}`;
+    return formattedDate
+}

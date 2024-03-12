@@ -9,6 +9,7 @@ import { client } from '../../../../sanity/lib/client'
 import { QQouponsByStore, QStore } from '../../../../sanity/lib/queries'
 import Categories from '@/components/categories'
 import PopularStories from '@/components/popular-stories'
+import { GetCurrentDateInISOFormat } from '@/utils'
 
 async function getData(name: any): Promise<any> {
     const coupons = await client.fetch(QQouponsByStore, { name })
@@ -21,15 +22,17 @@ async function getData(name: any): Promise<any> {
 
 export default async function Store({ params }: any) {
     const { coupons, store } = await getData(params.name)
-
-    const totalcoupons = coupons.filter((item: any) => item.offer_type.some((t: any) => t === 'coupon'))
-    const totalDeals = coupons.filter((item: any) => item.offer_type.some((t: any) => t === 'deal'))
+    const currentDateInISOFormat = GetCurrentDateInISOFormat();
+    const todaysOffer = coupons.filter((item:any)=>item._createdAt.slice(0, 10) === currentDateInISOFormat )
+    const highestDiscount = Math.max(...todaysOffer.map((offer:any) => offer.discount));
+    const totalcoupons = todaysOffer.filter((item: any) => item.offer_type.some((t: any) => t === 'coupon'))
+    const totalDeals = todaysOffer.filter((item: any) => item.offer_type.some((t: any) => t === 'deal'))
 
     return (
         <main className='bg-secondary/5'>
             <Container className='flex md:flex-row flex-col-reverse gap-10 py-16'>
                 <aside className='md:w-1/4 w-full'>
-                    <Sidebar data={store} total={coupons?.length} totalcoupons={totalcoupons.length} totalDeals={totalDeals.length} />
+                    <Sidebar data={store} total={todaysOffer?.length} highestDiscount={highestDiscount} totalcoupons={totalcoupons.length} totalDeals={totalDeals.length} />
                 </aside>
                 <div className='md:w-3/4 w-full'>
                     <div className='mb-16'>
@@ -64,4 +67,9 @@ export default async function Store({ params }: any) {
         </main>
     )
 }
+
+
+
+
+
 

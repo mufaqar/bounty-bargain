@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { urlForImage } from '../../../sanity/lib/image'
+import { blogDateFormate } from '@/utils'
 const PostBox = ({ data }: any) => {
     return (
         <div className=' rounded-3xl px-4 mx-auto'>
@@ -13,7 +14,7 @@ const PostBox = ({ data }: any) => {
             </div>
             <div className='mt-6'>
                 <p className='text-xs font-normal text-neutral/80'>
-                    {data?._createdAt}
+                    {blogDateFormate(data?._createdAt)}
                 </p>
 
                 <Link href={`/blog/${data?.slug?.current}`} className='text-base font-bold text-dark line-clamp-1'>

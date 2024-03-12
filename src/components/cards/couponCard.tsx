@@ -31,7 +31,7 @@ const CouponCard = ({ data }: any) => {
                                    }
                               }
                          >
-                              Get Coupon
+                              Get {data?.offer_type[0] === 'coupon' ? 'Coupon' : 'Deal'}
                          </Button>
                     </div>
                </div>

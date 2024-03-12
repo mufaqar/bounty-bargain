@@ -74,7 +74,7 @@ const SubmitCoupon = () => {
                               <div className="mt-4 flex gap-5 flex-wrap">
                                    {
                                         offerTypes.map((item, idx) => (
-                                             <button key={idx} className={`border ${item.value !== type && 'opacity-40'} border-purple p-2 hover:shadow-lg flex flex-col items-center justify-center relative rounded-lg text-purple`}
+                                             <button key={idx} className={`border ${item.value !== type && 'opacity-40'} capitalize border-purple p-2 hover:shadow-lg flex flex-col items-center justify-center relative rounded-lg text-purple`}
                                                   onClick={() => {
                                                        setType(item.value)
                                                        setFormData({ ...formData, offerType: item.value })
@@ -89,10 +89,15 @@ const SubmitCoupon = () => {
                                         ))
                                    }
                               </div>
-                              <label className='block mt-4'>Code</label>
-                              <input type="text" name="code" onChange={(e) => handleChange(e)} value={formData.code} className='p-2 bg-white outline-none border w-full mt-2 px-4 rounded-md' placeholder='Code' required />
-                              <label className='block mt-4'>Discount Description</label>
-                              <textarea onChange={(e) => handleChange(e)} name="discountDescription" value={formData.discountDescription} className='p-2 bg-white outline-none border w-full mt-2 px-4 rounded-md' required />
+                              {
+                                   type === 'coupon' && <>
+                                        <label className='block mt-4'>Code (eg. DISCOUNT10)</label>
+                                        <input type="text" name="code" onChange={(e) => handleChange(e)} value={formData.code} className='p-2 bg-white outline-none border w-full mt-2 px-4 rounded-md' placeholder='Code' required />
+                                   </>
+                              }
+                              
+                              <label className='block mt-4'>Savings and conditions fields</label>
+                              <textarea onChange={(e) => handleChange(e)} name="discountDescription" value={formData.discountDescription} className='p-2 bg-white outline-none border w-full mt-2 px-4 rounded-md' required placeholder='eg. 10% off OR Applicable to all products'/>
                               <label className='block mt-4'>Start Date (optional)</label>
                               <input type="date" name="startDate" id="" onChange={(e) => handleChange(e)} value={formData.startDate} className='p-2 bg-white outline-none border w-full mt-2 px-4 rounded-md' />
                               <label className='block mt-4'>Expiration Date (optional)</label>
@@ -127,17 +132,12 @@ export default SubmitCoupon
 const offerTypes = [
      {
           icon: <CiGlobe />,
-          title: 'Online Code',
+          title: 'online deal',
           value: 'deal'
      },
      {
           icon: <RiCouponLine />,
-          title: 'In-Store Coupon',
+          title: 'online coupon',
           value: 'coupon'
      },
-     {
-          icon: <FiDollarSign />,
-          title: 'Online Sale or Tip',
-          value: 'online'
-     }
 ]

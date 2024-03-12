@@ -19,7 +19,7 @@ async function getData(category:any) {
 }
 
 
-const Sidebar = async ({ data, total, totalcoupons, totalDeals }: any) => {
+const Sidebar = async ({ data, total, totalcoupons, totalDeals, highestDiscount }: any) => {
     const { similerStore } = await getData(data?.category?.name)
     return (
         <div className='flex flex-col gap-7 divide-y divide-[#CACACE]'>
@@ -48,11 +48,11 @@ const Sidebar = async ({ data, total, totalcoupons, totalDeals }: any) => {
                 </p>
                 <ul className='flex flex-col gap-1 list-disc list-inside'>
                     <li className='text-sm font-normal text-dark'>
-                        Up to 20% Off $49.99+
+                        Up to {highestDiscount}% Off
                     </li>
-                    <li className='text-sm font-normal text-dark'>
+                    {/* <li className='text-sm font-normal text-dark'>
                         15% Off Sitewide
-                    </li>
+                    </li> */}
                 </ul>
                 <ul className='flex flex-col gap-2 mt-6'>
                     <li className='text-sm font-normal text-dark flex items-center justify-between'>
@@ -69,12 +69,12 @@ const Sidebar = async ({ data, total, totalcoupons, totalDeals }: any) => {
                     </li>
                     <li className='text-sm font-normal text-dark flex items-center justify-between'>
                         <span>Best Discount</span>
-                        <strong>  20% off</strong>
+                        <strong>  {highestDiscount}% off</strong>
                     </li>
-                    <li className='text-sm font-normal text-dark flex items-center justify-between'>
+                    {/* <li className='text-sm font-normal text-dark flex items-center justify-between'>
                         <span>Cash Back Offer</span>
                         <strong>  1%</strong>
-                    </li>
+                    </li> */}
                 </ul>
             </div>
             <div className='pt-6'>

@@ -65,7 +65,7 @@ const Coupon = ({ data }: any) => {
 
                     </div>
                 </div>
-                <div className='border-t border-[#E4E4E4] mt-6'>
+                {/* <div className='border-t border-[#E4E4E4] mt-6'>
                     <button className='text-xs font-medium text-dark flex items-center gap-2 p-4 pb-0' onClick={handleMoreSetails}>
                         <span> See more details </span>  <FaChevronDown />
                     </button>
@@ -96,7 +96,7 @@ const Coupon = ({ data }: any) => {
                         </div>
                     }
 
-                </div>
+                </div> */}
             </div>
         </>
     )
