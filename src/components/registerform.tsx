@@ -108,7 +108,7 @@ const RegisterForm = () => {
                         type='email'
                         value={formData.email}
                         onChange={(e) => handleChange(e)}
-                        placeholder='john.doe@email.com'
+                        placeholder={queryemail ? queryemail : 'john.doe@email.com'}
                         className='bg-white w-full md:text-lg text-xs font-normal text-dark placeholder:text-dark py-6 px-5 rounded-full shadow-Input outline-none border border-transparent focus:border-secondary' />
                 </div>
                 <div>
