@@ -93,7 +93,7 @@ export const store = defineType({
       name: "detail_onlick",
       title: "Detail",
       type: "array",
-      description: 'write detail about store that show on button click ( Read more )',
+      description: 'More details about the store that shows below coupons',
       group: "main",
       of: [
         {

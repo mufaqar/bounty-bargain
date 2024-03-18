@@ -10,6 +10,7 @@ import { QQouponsByStore, QStore } from '../../../sanity/lib/queries'
 import Categories from '@/components/categories'
 import PopularStories from '@/components/popular-stories'
 import { GetCurrentDateInISOFormat } from '@/utils'
+import BlockContents from '@/components/UI/blockContent'
 
 async function getData(name: any): Promise<any> {
     const coupons = await client.fetch(QQouponsByStore, { name })
@@ -49,6 +50,7 @@ export default async function Store({ params }: any) {
                                 )
                             })}
                         </div>
+                        <BlockContents data={store?.detail_onlick} />
                     </div>
                 </div>
             </Container>

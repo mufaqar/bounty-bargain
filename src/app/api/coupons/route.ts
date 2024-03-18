@@ -11,12 +11,13 @@ export async function GET() {
 // create copons 
 export async function POST(req: Request) {
   try {
-    const { websiteUrl, offerType, code, discountDescription, startDate, expDate} =
+    const { websiteUrl, offerType, code, Savings, Conditions, startDate, expDate} =
     (await req.json()) as {
       websiteUrl: string;
         offerType: string;
         code: string;
-        discountDescription: string;
+        Savings: string;
+        Conditions: string;
         startDate: string;
         expDate: string;
         
@@ -24,7 +25,8 @@ export async function POST(req: Request) {
 
     const doc = {
       _type: "coupon",
-      info : discountDescription,
+      Conditions : Conditions,
+      Savings : Savings,
       offer_type: [offerType],
       websiteURL: websiteUrl,
       couponCode: code

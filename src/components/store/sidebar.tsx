@@ -29,7 +29,7 @@ const Sidebar = async ({ data, total, totalcoupons, totalDeals, highestDiscount 
                 }}>
                     <Image src={data?.logo?.asset.url} alt='author' width={152} height={153} className='object-contain ' />
                 </figure>
-                <AffiliateButton data={data} />
+                {/* <AffiliateButton data={data} /> */}
             </div>
             <RateUs data={data} id={data._id} />
             <div className='pt-6'>
@@ -50,7 +50,7 @@ const Sidebar = async ({ data, total, totalcoupons, totalDeals, highestDiscount 
                 </p>
                 <ul className='flex flex-col gap-1 list-disc list-inside'>
                     <li className='text-sm font-normal text-dark'>
-                        Up to {highestDiscount}% Off
+                        Up to {highestDiscount === -Infinity ? 0 : highestDiscount}% Off
                     </li>
                     {/* <li className='text-sm font-normal text-dark'>
                         15% Off Sitewide
@@ -71,7 +71,7 @@ const Sidebar = async ({ data, total, totalcoupons, totalDeals, highestDiscount 
                     </li>
                     <li className='text-sm font-normal text-dark flex items-center justify-between'>
                         <span>Best Discount</span>
-                        <strong>  {highestDiscount}% off</strong>
+                        <strong>  {highestDiscount === -Infinity ? 0     : highestDiscount}% off</strong>
                     </li>
                     {/* <li className='text-sm font-normal text-dark flex items-center justify-between'>
                         <span>Cash Back Offer</span>

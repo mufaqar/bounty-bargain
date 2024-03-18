@@ -23,9 +23,14 @@ export const coupon = defineType({
     }),
     
     defineField({
-      name: "info",
+      name: "Savings",
       type: "text",
-      title: "Info",
+      title: "Savings",
+    }),
+    defineField({
+      name: "Conditions",
+      type: "text",
+      title: "Conditions",
     }),
     defineField({
       name: "totalUsed",
@@ -72,8 +77,8 @@ export const coupon = defineType({
       options: {
         layout: "radio",
         list: [
-          { title: "Deal", value: "deal" },
-          { title: "Coupon", value: "coupon" }
+          { title: "Deal", value: "deal", initialValue: 'deal' },
+          { title: "Code", value: "code" }
         ]
       },
     },

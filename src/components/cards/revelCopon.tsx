@@ -26,7 +26,7 @@ const RevelCopon = () => {
                     >
                          <Image src={copan?.store?.logo?.asset.url} alt={copan?.name} width={50} height={50} />
                     </figure>
-                    <Heading className="text-center mb-7 mt-3">Take {copan.discount}% Off with {copan?.websiteURL?.replace('http://', '')?.replace('https://', '')} <br /> {!isDeal && 'Promo Code'}</Heading>
+                    <Heading className="text-center mb-7 mt-3">Take {copan.discount}% Off with <span className='capitalize'>{copan?.store.name}</span> <br /> {!isDeal && 'Promo Code'}</Heading>
                     {
                          !isDeal && <div className=' flex mb-4'>
                          <input type={`text`} value={copan.couponCode} ref={inputRef} className="border outline-none p-2 flex-1 text-gray-400 rounded-bl-md rounded-tl-md" />
@@ -38,9 +38,9 @@ const RevelCopon = () => {
                     }
                     
                     <Link href={copan.websiteURL} target='_blank'>
-                         <Button color='primary' fullwidth variants='primary' size='medium' rounded>Use at {copan?.websiteURL?.replace('http://', '')?.replace('https://', '')}</Button>
+                         <Button color='primary' fullwidth variants='primary' size='medium' rounded>Use at <span className='capitalize'>{copan?.store.name}</span></Button>
                     </Link>
-                    <p className="text-sm mt-3 text-center px-1">Copy the code, then go to <strong>{copan?.websiteURL?.replace('http://', '')?.replace('https://', '')}</strong> and paste it in during checkout. Your savings will be applied!</p>
+                    <p className="text-sm mt-3 text-center px-1">Copy the code, then go to <strong className='capitalize'>{copan?.store.name}</strong> and paste it in during checkout. Your savings will be applied!</p>
                     <div className="flex mt-4 gap-2 justify-center flex-wrap">
                     <h6 className="text-primary text-center font-semibold ">Did this deal work for you?</h6>
                     {/* <h6 onClick={()=>{

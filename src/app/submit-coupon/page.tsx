@@ -12,13 +12,14 @@ import { toast } from 'react-toastify';
 
 const SubmitCoupon = () => {
 
-     const [type, setType] = useState('deal')
+     const [type, setType] = useState('')
      const [loading, setLoading] = useState(false)
      const [formData, setFormData] = useState({
           websiteUrl: '',
           offerType: type,
           code: '',
-          discountDescription: '',
+          Savings: '',
+          Conditions: '',
           startDate: '',
           expDate: ''
      })
@@ -31,7 +32,7 @@ const SubmitCoupon = () => {
 
      const handleSubmitCoupon = async () => {
           CheckRequiredFields(formData)
-          if (!formData?.code || !formData?.discountDescription || !formData?.offerType || !formData?.websiteUrl) {
+          if (!formData?.code || !formData?.Savings || !formData?.Conditions || !formData?.offerType || !formData?.websiteUrl) {
                return null
           }
           setLoading(true)
@@ -52,7 +53,8 @@ const SubmitCoupon = () => {
                          websiteUrl: '',
                          offerType: type,
                          code: '',
-                         discountDescription: '',
+                         Savings: '',
+                         Conditions: '',
                          startDate: '',
                          expDate: ''
                     })
@@ -90,14 +92,16 @@ const SubmitCoupon = () => {
                                    }
                               </div>
                               {
-                                   type === 'coupon' && <>
+                                   type === 'code' && <>
                                         <label className='block mt-4'>Code (eg. DISCOUNT10)</label>
                                         <input type="text" name="code" onChange={(e) => handleChange(e)} value={formData.code} className='p-2 bg-white outline-none border w-full mt-2 px-4 rounded-md' placeholder='Code' required />
                                    </>
                               }
                               
-                              <label className='block mt-4'>Savings and conditions fields</label>
-                              <textarea onChange={(e) => handleChange(e)} name="discountDescription" value={formData.discountDescription} className='p-2 bg-white outline-none border w-full mt-2 px-4 rounded-md' required placeholder='eg. 10% off OR Applicable to all products'/>
+                              <label className='block mt-4'>Savings</label>
+                              <textarea onChange={(e) => handleChange(e)} name="Savings" placeholder="eg. 10% off" value={formData.Savings} className='p-2 bg-white outline-none border w-full mt-2 px-4 rounded-md' required />
+                              <label className='block mt-4'>Conditions</label>
+                              <textarea onChange={(e) => handleChange(e)} name="Conditions" placeholder="eg. Applicable to all products" value={formData.Conditions} className='p-2 bg-white outline-none border w-full mt-2 px-4 rounded-md' required />
                               <label className='block mt-4'>Start Date (optional)</label>
                               <input type="date" name="startDate" id="" onChange={(e) => handleChange(e)} value={formData.startDate} className='p-2 bg-white outline-none border w-full mt-2 px-4 rounded-md' />
                               <label className='block mt-4'>Expiration Date (optional)</label>
@@ -131,13 +135,13 @@ export default SubmitCoupon
 
 const offerTypes = [
      {
+          icon: <RiCouponLine />,
+          title: 'online code',
+          value: 'code'
+     },
+     {
           icon: <CiGlobe />,
           title: 'online deal',
           value: 'deal'
-     },
-     {
-          icon: <RiCouponLine />,
-          title: 'online coupon',
-          value: 'coupon'
      },
 ]

@@ -29,11 +29,11 @@ const MobileNav: FC<any> = ({ isMobile }) => {
                <ul className='text-gray-800 flex flex-col justify-center items-center gap-5 lg:gap-8'>
                     <li><Link href="#" className='hover:text-primary'>Deals / Coupons</Link></li>
                     <li><Link href="#" className='hover:text-primary'>Blog</Link></li>
-                    <li><Link href="#" className='flex items-center gap-1 font-semibold text-primary'>
+                    {/* <li><Link href="#" className='flex items-center gap-1 font-semibold text-primary'>
                          <Image src="/svg/disks.svg" width={20} height={20} alt="disk" />
                          Earn Money
                     </Link>
-                    </li>
+                    </li> */}
                </ul>
                <Button
                     variants="text"

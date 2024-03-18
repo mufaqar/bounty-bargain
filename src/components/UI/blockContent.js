@@ -3,7 +3,7 @@ import BlockContent from "@sanity/block-content-to-react";
 
 const BlockContents = ({data}) => {
      return (
-          <div>
+          <div className='mt-10'>
                <BlockContent
                     blocks={data}
                     projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}
