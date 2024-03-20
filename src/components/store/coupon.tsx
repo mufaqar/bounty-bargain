@@ -31,7 +31,7 @@ const Coupon = ({ data }: any) => {
                             {data?.name}
                         </p>
                         <p className='text-xl font-semibold text-dark my-2'>
-                            {data?.info} + Orders
+                            {data?.Savings} + Orders
                         </p>
                         <ul className='flex flex-wrap gap-4 items-center'>
                             <li className='text-xs font-normal text-dark'>
@@ -62,7 +62,7 @@ const Coupon = ({ data }: any) => {
                                 openModal('coupon')
                             }}
                         >
-                            {data?.offer_type?.[0] === 'coupon' ? "SHOW COUPON " : "GET DEAL"}
+                            {data?.offer_type?.[0] === 'code' ? "SHOW COUPON " : "GET DEAL"}
                         </Button>
 
                     </div>

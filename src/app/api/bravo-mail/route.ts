@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-const SibApiV3Sdk = require("sib-api-v3-typescript");
 
 export async function POST(req: Request) {
   const { email } = (await req.json()) as {
@@ -7,35 +6,26 @@ export async function POST(req: Request) {
   };
   console.log("🚀 ~ const{email}= ~ email:", email);
 
-  let apiInstance = new SibApiV3Sdk.ContactsApi();
-
-  let apiKey = apiInstance.authentications["apiKey"];
-
-  apiKey.apiKey = "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";
-
-  let createContact = new SibApiV3Sdk.CreateContact();
-
-  createContact.email = "exampletest@example.com";
-  createContact.listIds = [2];
-
-  apiInstance.createContact(createContact).then(
-    function (data: any) {
-      return new NextResponse(
+  const options = {
+    method: 'POST',
+    headers: {
+      accept: 'application/json',
+      'content-type': 'application/json',
+      'api-key': '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'
+    },
+    body: JSON.stringify({updateEnabled: false, email: 'zunairgillani54@gmail.com'})
+  };
+  
+  fetch('https://api.brevo.com/v3/contacts', options)
+    .then(response => response.json())
+    .then(response => 
+      {return new NextResponse(
         JSON.stringify({
           status: "ok",
-          message: JSON.stringify(data),
+          message: JSON.stringify(response),
         }),
         { status: 201 }
-      );
-    },
-    function (error: any) {
-      return new NextResponse(
-        JSON.stringify({
-          status: "error",
-          message: error,
-        }),
-        { status: 400 }
-      );
-    }
-  );
+      )} 
+    )
+    .catch(err => console.error(err)); 
 }

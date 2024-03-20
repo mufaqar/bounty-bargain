@@ -35,6 +35,7 @@ const RateUs = ({ data, id }: any) => {
                     window.location.reload()
                })
                .catch((err) => {
+                    console.log("🚀 ~ handleRating ~ err:", err)
                     toast.error(`Not rated ${data?.name}!`, { position: "top-right" });
                     setLoading(false)
                });
