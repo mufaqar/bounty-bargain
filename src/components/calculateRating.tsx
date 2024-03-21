@@ -1,11 +1,18 @@
 'use client'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaStar } from 'react-icons/fa'
 import { FaRegStar } from "react-icons/fa";
 
 
 const CalculateRating = ({ number }: any) => {
-     let roundedNumber = Math.ceil(number);
+     const [rated, setRated] = useState<any>(false)
+     let roundedNumber = Math.ceil(rated);
+     console.log("🚀 ~ CalculateRating ~ rated:", rated)
+
+     useEffect(() => {
+          const r: any = localStorage.getItem('rated')
+          setRated(JSON.parse(r))
+     }, [])
 
      return (
           <>
@@ -33,7 +40,7 @@ const CalculateRating = ({ number }: any) => {
 
                     <ul className='text-2xl font-bold text-purple flex gap-1.5 items-center'>
                          <li className='text-sm mt-1 font-normal text-[#636363]'>
-                              {number || '5'}/5
+                              {Math.ceil(rated) || '5'}/5
                          </li>
                     </ul>
                </div>
