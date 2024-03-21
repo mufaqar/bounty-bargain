@@ -66,7 +66,7 @@ const Sidebar = async ({ data, total, totalcoupons, totalDeals, highestDiscount 
                         <strong>  {totalcoupons}</strong>
                     </li>
                     <li className='text-sm font-normal text-dark flex items-center justify-between'>
-                        <span>Free Shipping Deals</span>
+                        <span>Deals</span>
                         <strong>  {totalDeals}</strong>
                     </li>
                     <li className='text-sm font-normal text-dark flex items-center justify-between'>
