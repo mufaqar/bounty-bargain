@@ -6,12 +6,14 @@ import AnotherDeal from '@/components/store/another-deal'
 import React from 'react'
 
 async function getData() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_FRONEND_URL}api/blogs`)
+  const res = await fetch(`${process.env.NEXT_PUBLIC_FRONEND_URL}api/blogs`, {
+    next: { revalidate: 60 },
+  })
   if (!res.ok) {
-       throw new Error('Failed to fetch data')
+    throw new Error('Failed to fetch data')
   }
-  const blogs = await res.json() 
-  
+  const blogs = await res.json()
+
   return {
     blogs
   }
@@ -35,7 +37,7 @@ async function Blog() {
       </Container>
       <Container className='py-8'>
         <div className='grid md:grid-cols-3 grid-cols-1 gap-7'>
-          {blogs?.data?.map((item:any, idx:number) => {
+          {blogs?.data?.map((item: any, idx: number) => {
             return (
               <PostBox key={idx} data={item} />
             )
